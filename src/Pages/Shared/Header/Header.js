@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Mode from '../../../Components/ThemeChanger/Mode';
+import logo from '../../../Components/Assets/Images/ape.png';
+
 
 const Header = () => {
 
@@ -18,7 +20,10 @@ const Header = () => {
                         <li><Link to="/signup">Sign Up</Link></li>
                     </ul>
                 </div>
-                <Link className="ml-6 normal-case text-xl">Bit  NFT</Link>
+                <div className='flex'>
+                    <Link className="lg:mx-6 mx-2 normal-case text-xl">Bit  NFT</Link>
+                    <img className='w-6 h-6' src={logo} alt="" />
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
