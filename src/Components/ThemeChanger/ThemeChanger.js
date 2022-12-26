@@ -20,7 +20,7 @@ const ThemeChanger = () => {
     ]
     useEffect(() => {
         themeChange(false)
-    })
+    }, []);
 
     return (
         <>
