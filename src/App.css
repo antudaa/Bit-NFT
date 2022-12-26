@@ -1,3 +1,15 @@
+* {
+  /* font-family: 'Arima', cursive; */
+  /* font-family: 'Bree Serif', serif; */
+  /* font-family: 'Cormorant SC', serif; */
+  /* font-family: 'Ibarra Real Nova', serif; */
+  /* font-family: 'Lobster', cursive; */
+  /* font-family: 'Montserrat', sans-serif; */
+  /* font-family: 'Playfair Display', serif; */
+  /* font-family: 'Roboto Slab', serif; */
+  font-family: 'Source Serif Pro', serif;
+}
+
 .App {
   text-align: center;
 }
@@ -32,6 +44,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
