@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
-import { EffectCards } from "swiper";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation, Autoplay, EffectCards } from "swiper";
 
 // Images
 import nft1 from '../../Components/Assets/Nfts/bighead-9.svg';
@@ -15,6 +17,7 @@ import nft6 from '../../Components/Assets/Nfts/bighead-4.svg';
 import nft7 from '../../Components/Assets/Nfts/bighead-3.svg';
 import nft8 from '../../Components/Assets/Nfts/bighead-2.svg';
 import nft9 from '../../Components/Assets/Nfts/bighead-1.svg';
+import nft10 from '../../Components/Assets/Nfts/bighead.svg';
 
 
 const Container = styled.div`
@@ -25,26 +28,44 @@ const Container = styled.div`
         width : 100%;
         height : 100%;
     }
+
+    .swiper-slide{
+        background-color : #EEEDDE;
+        border-radius : 20px;
+
+        display : flex;
+        justify-content : center;
+        align-items : center; 
+    }
 `
 
 const Carousel = () => {
     return (
         <Container>
             <Swiper
+                autoplay={{
+                    delay: 2000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    type: 'fraction'
+                }}
+                navigation={true}
                 effect={"cards"}
                 grabCursor={true}
-                modules={[EffectCards]}
+                modules={[EffectCards, Pagination, Navigation, Autoplay]}
                 className="mySwiper"
             >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                <SwiperSlide> <img src={nft1} alt="NFT Images" /> </SwiperSlide>
+                <SwiperSlide> <img src={nft2} alt="NFT Images" /> </SwiperSlide>
+                <SwiperSlide> <img src={nft3} alt="NFT Images" /> </SwiperSlide>
+                <SwiperSlide> <img src={nft4} alt="NFT Images" /> </SwiperSlide>
+                <SwiperSlide> <img src={nft5} alt="NFT Images" /> </SwiperSlide>
+                <SwiperSlide> <img src={nft6} alt="NFT Images" /> </SwiperSlide>
+                <SwiperSlide> <img src={nft7} alt="NFT Images" /> </SwiperSlide>
+                <SwiperSlide> <img src={nft8} alt="NFT Images" /> </SwiperSlide>
+                <SwiperSlide> <img src={nft9} alt="NFT Images" /> </SwiperSlide>
+                <SwiperSlide> <img src={nft10} alt="NFT Images" /> </SwiperSlide>
             </Swiper>
         </Container>
     );
