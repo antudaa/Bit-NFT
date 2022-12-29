@@ -13,7 +13,7 @@ const VideoContainer = styled.div`
      }
 
     @media (max-width: 64em){
-        min-width: 50vh
+        min-width: 45vh
     }
     `
 
