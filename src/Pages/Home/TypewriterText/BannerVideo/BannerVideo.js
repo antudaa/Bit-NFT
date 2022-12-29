@@ -9,10 +9,13 @@ const VideoContainer = styled.div`
      video{
         width : 100%;
         height : auto;
+        border-radius: 30px;
      }
+
+    @media (max-width: 64em){
+        min-width: 50vh
+    }
     `
-
-
 
 
 const BannerVideo = () => {

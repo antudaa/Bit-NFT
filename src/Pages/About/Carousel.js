@@ -24,6 +24,26 @@ const Container = styled.div`
     width : 25vw;
     height : 70vh;
 
+    @media (max-width: 70em){
+        width: 60vh;
+        
+    }
+
+    @media (max-width: 64em){
+        width: 30vw;
+        height: 50vh;
+    }
+
+    @media (max-width: 48em){
+        width: 40vw;
+        height: 50vh;
+    }
+
+    @media (max-width: 48em){
+        width: 60vw;
+        height: 45vh;
+    }
+
     .swiper{
         width : 100%;
         height : 100%;
