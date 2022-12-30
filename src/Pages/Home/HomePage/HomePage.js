@@ -10,7 +10,7 @@ const HomePage = () => {
         <div>
             <Home />
             <About />
-            {/* <ShowCase /> */}
+            <ShowCase />
             <TeamSection />
             <Contact />
         </div>

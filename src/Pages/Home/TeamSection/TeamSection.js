@@ -27,8 +27,8 @@ const Title = styled.h2`
 const TeamSection = () => {
     return (
         <Section>
-            <Title className='text-center'>
-                Our Team
+            <Title className='text-center' >
+                <span data-aos="fade-down">Our Team</span>
             </Title>
             <div className='team-section'>
                 <div class="carousel">

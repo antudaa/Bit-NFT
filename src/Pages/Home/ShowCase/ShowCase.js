@@ -25,6 +25,7 @@ const Section = styled.section`
     justify-content : center;
     align-items : center;
     position : relative;
+    overflow : hidden;
 
     &>*:first-child : {
         animation-duration : 20s;
@@ -54,7 +55,7 @@ const Row = styled.div`
     margin : 2rem 0;
     display : flex;
 
-    animation : ${move} 20s linear infinite ${props => props.direction};
+    animation : ${move} 15s linear infinite ${props => props.direction};
 
     // div{
     //     width : 5rem;
