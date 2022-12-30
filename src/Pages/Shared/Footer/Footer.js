@@ -1,7 +1,32 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 import logo from '../../../Components/Assets/Images/ape.png';
 import './Footer.css';
+
+
+const Form = styled.form`
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 40px ;
+
+    .far {
+        font-size: 18px;
+        margin-right: 5px;
+    }
+
+    input {
+        width: 100%;
+        background: transparent;
+        color: #ccc;
+        border: 0;
+        outline: none;
+    }
+`
+
 
 const Footer = () => {
     return (
@@ -32,15 +57,17 @@ const Footer = () => {
                 </div>
                 <div className='col'>
                     <h3>Newsletter <div className="underline"><span></span></div></h3>
-                    {/* <form>
-                        <i class="far fa-solid fa-envelope"></i>
-                        <input type="email" placeholder='Enter your email' required />
-                    </form> */}
-                    <div className='social-icons'>
-                        <i class="fab fa-facebook"></i>
-                        <i class="fab fa-linkedin"></i>
-                        <i class="fab fa-github"></i>
-                        <i class="fab fa-whatsapp"></i>
+                    <div className='flex justify-around lg:flex-col md:flex-col'>
+                        <Form className='mr-48'>
+                            <i class="far fa-solid fa-envelope"></i>
+                            <input type="email" placeholder='Email' required />
+                        </Form>
+                        <div className='social-icons '>
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-linkedin"></i>
+                            <i class="fab fa-github"></i>
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
                     </div>
                 </div>
             </div>

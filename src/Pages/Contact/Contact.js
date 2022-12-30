@@ -1,10 +1,9 @@
 import React, { useRef } from 'react';
 import { content } from '../../Components/Content/Content';
-import email from '../../Components/Assets/Contact/gmail.png';
-import whatsApp from '../../Components/Assets/Contact/whatsapp.png';
-import linkedin from '../../Components/Assets/Contact/linkedin.png';
 // import emailjs from '@emailjs/browser';
-import toast, { Toaster } from "react-hot-toast";
+// import toast, { Toaster } from "react-hot-toast";
+import './Contact.css';
+
 
 const Contact = () => {
     const { Contact } = content;
@@ -33,68 +32,71 @@ const Contact = () => {
     // };
 
     return (
-        <section className=" " id="contact">
-            <div className="md:container px-5 py-14">
-                <h2 className="text-4xl my-4 text-center" data-aos="fade-down">
-                    {Contact.title}
-                </h2>
-                <h4 className="subtitle" data-aos="fade-down">
-                    {Contact.subtitle}
-                </h4>
-                <br />
-                <div className="flex gap-10 md:flex-row flex-col justify-center">
-                    <form
-                        ref={form}
-                        // onSubmit={sendEmail}
-                        data-aos="fade-up"
-                        className="flex-1 flex flex-col gap-5"
-                    >
-                        {/* Input Name as same as email js templates values */}
-                        <input
-                            type="text"
-                            name="from_name"
-                            placeholder="Name"
-                            required
-                            className="border border-slate-600 p-3 rounded"
-                        />
-                        <input
-                            type="email"
-                            name="user_email"
-                            pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$"
-                            placeholder="Email Id"
-                            required
-                            className="border border-slate-600 p-3 rounded"
-                        />
-                        <textarea
-                            name="message"
-                            placeholder="Message"
-                            className="border border-slate-600 p-3 rounded h-44"
-                            required
-                        ></textarea>
-                        <button
-                            className="btn self-start"
-                        >
-                            Submit
-                        </button>
-                    </form>
-                    <div className="flex-1 flex lg:flex-col gap-5 ">
-                        {
-                            Contact.social_media.map((media, i) => (
-                                <div key={i} className='flex items-center gap-4 '>
-                                    {
-                                        i === 0 ? <img className='w-8' src={email} alt="" /> : i === 1 ? <img className='w-8' src={whatsApp} alt="" /> : i === 2 ? <img className='w-8' src={linkedin} alt="" /> : <></>
-                                    }
-                                    {
-                                        i === 0 ? <a className='font-Poppins hidden my-2' href={media.link} >{media.text}</a>
-                                            : <a target='_blank' rel="noreferrer" className='font-Poppins hidden text-white my-2' href={media.link} >{media.text}</a>
-                                    }
+        <section className='contact'>
+            <div className="contact-heading">
+                <h2>Contact Us</h2>
+            </div>
+            <div className="container">
+                <div className="row">
+                    <div className="column">
+                        <div className="contact-widget">
+                            <div className="contact-widget-item">
+                                <div className="icon">
+                                    <i class='fa-solid fa-location-dot'></i>
                                 </div>
-                            ))
-                        }
+                                <div className="text">
+                                    <h5>Address</h5>
+                                    <p>1710 College Gate Hathazari, Chittagong.</p>
+                                </div>
+                            </div>
+                            <div className="contact-widget-item">
+                                <div className="icon">
+                                    <i class='fa-solid fa-phone'></i>
+                                </div>
+                                <div className="text">
+                                    <h5>Contact Us</h5>
+                                    <p> +8801788362766 </p>
+                                </div>
+                            </div>
+                            <div className="contact-widget-item">
+                                <div className="icon">
+                                    <i class='fa-regular fa-envelope'></i>
+                                </div>
+                                <div className="text">
+                                    <h5>Email</h5>
+                                    <p>antu.haks@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="column">
+                        <div className="contact-form">
+                            <form action="#">
+                                <input className='input' type="text" placeholder='Name' />
+                                <input className='input' type="email" placeholder='Email' />
+                                <textarea placeholder='Comment' name="" id="" cols="30" rows="10"></textarea>
+                                <button type='submit' className='btn btn-outline btn-info w-full'>Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    <div className="map-column">
+                        <div className="contact-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.0335829481446!2d91.80975111476931!3d22.502923141195996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd77851e5fba9%3A0x77e59f952a3fb977!2sHathazari%20College%20Gate!5e0!3m2!1sen!2sbd!4v1672433997204!5m2!1sen!2sbd"
+                                width="600"
+                                height="450"
+                                style={{ border: 0 }}
+                                allowfullscreen=""
+                                loading="lazy"
+                                title='ANTU'
+                                referrerpolicy="no-referrer-when-downgrade">
+
+                            </iframe>
+                        </div>
                     </div>
                 </div>
             </div>
-            <Toaster />
         </section>
     );
 };

@@ -55,29 +55,6 @@ ul li Link {
     color: aliceblue;
 }
 
-/* form {
-    padding-bottom: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #fff;
-    margin-bottom: 50px ;
-} */
-
-
-form .far {
-    font-size: 18px;
-    margin-right: 10px;
-}
-
-/* form input {
-    width: 100%;
-    background: transparent;
-    color: #ccc;
-    border: 0;
-    outline: none;
-} */
-
 
 .social-icons .fab {
     width: 40px;

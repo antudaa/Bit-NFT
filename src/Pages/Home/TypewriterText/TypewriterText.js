@@ -85,7 +85,7 @@ const TypewriterText = () => {
             <Subtitle className='text-xl'>
                 Bored Of Apes? Try Something New.
             </Subtitle>
-            <div className='flex justify-center align-center md:flex-start lg:flex-start'>
+            <div className='flex justify-center lg:justify-start'> 
             <button className='btn btn-outline '>Explore</button>
             </div>
         </div>
