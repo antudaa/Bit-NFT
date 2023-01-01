@@ -1,16 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import LoginImage from '../../Components/Assets/Login/icons8-walter-white-1600.png';
+import LoginImage from '../../Components/Assets/Login/20602937_6325230.jpg';
 import { useForm } from "react-hook-form";
 import './Login.css';
+import { AuthContext } from '../../Context/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 
 
 
 const Login = () => {
 
+    const { Login } = useContext(AuthContext);
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const handleLogin = (data) => {
+        console.log(data)
+        Login(data.email, data.password)
+            .then(result => {
+                const user = result.user;
+                toast.success(`Login Successful.`)
+                console.log(user);
+            })
+            .catch((error) => {
+                toast.error(`${error.message}`)
+                console.log(error.message)
+            })
+
+
+    };
 
     return (
 
@@ -23,7 +41,7 @@ const Login = () => {
                     <img src={LoginImage} className="lg:max-w-xl rounded-lg shadow-2xl w-86" alt='' />
                     <div className="card w-86 lg:max-w-xl flex-shrink-0 shadow-2xl bg-base-100">
                         <div className="card-body">
-                            <form onSubmit={handleSubmit(onSubmit)}>
+                            <form onSubmit={handleSubmit(handleLogin)}>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
@@ -40,7 +58,7 @@ const Login = () => {
                                         <span className="label-text">Password</span>
                                     </label>
                                     <input className="input input-bordered" placeholder='Password'
-                                        type="password" {...register("password", { required: "Password must be 8 character or longer."})} />
+                                        type="password" {...register("password", { required: "Password must be 8 character or longer." })} />
                                     {errors.password && <p className='text-red-500' role="alert">{errors.password?.message}</p>}
                                 </div>
 

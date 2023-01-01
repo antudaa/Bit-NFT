@@ -1,14 +1,15 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import signUpImage from '../../Components/Assets/Login/icons8-walter-white-1600.png';
+import signUpImage from '../../Components/Assets/Login/20602854_6325241.jpg';
 import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Context/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 
 const SignUp = () => {
 
-    const { createUserWithEmail } = useContext(AuthContext);
+    const { createUserWithEmail, updateUser } = useContext(AuthContext);
 
 
     DynamicRouteHook('Sign Up');
@@ -16,12 +17,26 @@ const SignUp = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const handleSignUp = (data) => {
         console.log(data)
-        createUserWithEmail(data.email, data.password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error => console.log(error));
+        createUserWithEmail(data.email, data.password, data.name)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                // const userInfo = {
+                //     displayName: data.name
+                // }
+                // updateUser(userInfo)
+                //     .then(() => {
+                //         // toast(`Welcome ${userInfo}`)
+                //         console.log(userInfo)
+                //     })
+                //     .catch((error) => {
+                //         toast(`${error.message}`)
+                //     })
+            })
+            .catch(error => {
+                console.log(error)
+                toast.error(`${error.message}`)
+            });
     };
 
 
