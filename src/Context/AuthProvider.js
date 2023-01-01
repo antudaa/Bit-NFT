@@ -1,71 +1,21 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext } from 'react';
+import { createUserWithEmailAndPassword, getAuth } from 'firebase/auth';
 import app from '../Firebase/FirebaseConfig';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
+
 
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
 
-const AuthProvider = ({ children }) => {
+const AuthProvider = ({children}) => {
 
-    const [loading, setLoading] = useState(true);
-
-    const [user, setUser] = useState(null);
-
-    // SignUp With Email & Password...
-    const SignUp = (email, password) => {
-        setLoading(true);
+    const createUserWithEmail = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
-
-    // Login 
-    const Login = (email, password) => {
-        setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
-    }
-
-
-    // Sign Out
-    const logOut = () => {
-        setLoading(true);
-        return signOut(auth);
-    }
-
-
-    // Google login
-    const signInWithGoogle = (provider) => {
-        setLoading(true);
-        return signInWithPopup(auth, provider);
-    }
-
-
-    // Create current user using useEffect
-    useEffect(() => {
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
-            setUser(currentUser);
-            setLoading(false);
-        });
-
-        return () => unSubscribe();
-    }, []);
-
-
-    // Update User 
-    const updateUser = (userInfo) => {
-        return updateUser(user, userInfo);
-    }
-
-
-
     const authInfo = {
-        Login,
-        SignUp,
-        logOut,
-        user,
-        updateUser,
-        loading,
-        signInWithGoogle
+        createUserWithEmail,
+        
     }
 
     return (

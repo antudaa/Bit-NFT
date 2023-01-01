@@ -59,14 +59,14 @@ const Footer = () => {
                     <h3>Newsletter <div className="underline"><span></span></div></h3>
                     <div className='flex justify-around lg:flex-col md:flex-col'>
                         <Form className='mr-48'>
-                            <i class="far fa-solid fa-envelope"></i>
+                            <i className="far fa-solid fa-envelope"></i>
                             <input type="email" placeholder='Email' required />
                         </Form>
                         <div className='social-icons '>
-                            <i class="fab fa-facebook"></i>
-                            <i class="fab fa-linkedin"></i>
-                            <i class="fab fa-github"></i>
-                            <i class="fab fa-whatsapp"></i>
+                            <i className="fab fa-facebook"></i>
+                            <i className="fab fa-linkedin"></i>
+                            <i className="fab fa-github"></i>
+                            <i className="fab fa-whatsapp"></i>
                         </div>
                     </div>
                 </div>
