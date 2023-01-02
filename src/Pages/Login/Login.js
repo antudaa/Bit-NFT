@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LoginImage from '../../Components/Assets/Login/20602937_6325230.jpg';
 import { useForm } from "react-hook-form";
 import './Login.css';
@@ -8,10 +8,14 @@ import { toast } from 'react-hot-toast';
 
 
 
-
 const Login = () => {
 
     const { Login } = useContext(AuthContext);
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const from = location.state?.from?.pathname || '/';
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const handleLogin = (data) => {
@@ -21,6 +25,7 @@ const Login = () => {
                 const user = result.user;
                 toast.success(`Login Successful.`)
                 console.log(user);
+                navigate(from, { replace: true })
             })
             .catch((error) => {
                 toast.error(`${error.message}`)
