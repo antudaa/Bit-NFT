@@ -1,11 +1,15 @@
 import React, { useRef } from 'react';
 import { content } from '../../Components/Content/Content';
+import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
 // import emailjs from '@emailjs/browser';
 // import toast, { Toaster } from "react-hot-toast";
 import './Contact.css';
 
 
 const Contact = () => {
+
+    DynamicRouteHook('Contact');
+
     const { Contact } = content;
     const form = useRef();
 

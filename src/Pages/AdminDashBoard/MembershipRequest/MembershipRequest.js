@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import DynamicRouteHook from '../../../Components/DynamiRouteHook/DynamicRouteHook';
 
 const MembershipRequest = () => {
+
+    DynamicRouteHook('Admin Panel');
 
     const { data: membershipRequest = [] } = useQuery({
         queryKey: ['membershipRequest'],

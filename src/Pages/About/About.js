@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Carousel from './Carousel';
 import Bounce from 'react-reveal/Bounce';
 import Fade from 'react-reveal/Fade';
 import { dark } from '../../Components/Thems/Thems';
+import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
+// Importing React Modal
+import Modal from 'react-modal';
+import { useForm } from "react-hook-form";
+import { Link } from 'react-router-dom';
 
 
+
+
+
+// Styled Component Starts here
 const Section = styled.section`
     min-height : 100vh;
     width : 100%;
@@ -97,11 +106,104 @@ const Button = styled.button`
 `
 
 
+// React Modal
+
+Modal.setAppElement('#root');
+
+
 const About = () => {
+
+    // React Form
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const handleSignUp = data => console.log(data);
+
+    DynamicRouteHook('About');
+
+    // React Modal
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    // Open Modal Function
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    // Close Modal Function
+    function closeModal() {
+        setIsOpen(false);
+    }
+
     return (
         <Section className='pt-8 pb-16'>
+
+            {/* React Modal */}
+            <Modal
+                style={{
+
+                    content: {
+                        top: '50%',
+                        left: '50%',
+                        right: 'auto',
+                        bottom: 'auto',
+                        marginRight: '-50%',
+                        transform: 'translate(-50%, -50%)',
+                        maxWidth: "23rem",
+                        width: "90%"
+                    },
+                    overlay: {
+                        padding: "2rem"
+                    },
+
+                }}
+                isOpen={modalIsOpen}
+                onRequestClose={closeModal}
+            >
+                <div className='flex flex-col items-center gap-2'>
+                    <div className='flex flex-row-reverse gap-6'>
+                        <div onClick={() => {
+                            closeModal();
+                        }} className='cursor-pointer'>
+                            <i class="fa-solid fa-xmark"></i>
+                        </div>
+                        <h1 className='font-bold lg:text-2xl text-xl'>Request For Membership</h1>
+                    </div>
+                    <hr />
+                    <p>After getting a membership you can post blogs and also able to sell and buy NFT's here.</p>
+                </div>
+                <br />
+                <hr />
+                <form onSubmit={handleSubmit(handleSignUp)}>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Name</span>
+                        </label>
+                        <input className="input input-bordered" placeholder='Name'
+                            {...register("name", { required: "Name Must have 4 or more character.", min: 8, max: 30 })}
+                            aria-invalid={errors.name ? "true" : "false"}
+                        />
+                        {errors.name && <p className='text-red-500' role="alert">{errors.name?.message}</p>}
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <input className="input input-bordered" placeholder='Email'
+                            {...register("email", { required: "Email Address is required" })}
+                            aria-invalid={errors.email ? "true" : "false"}
+                        />
+                        {errors.email && <p className='text-red-500' role="alert">{errors.email?.message}</p>}
+
+                    </div>
+
+                    <div className='mx-auto'>
+                        <button className='btn border-none bg-slate-700 text-md hover:bg-teal-200 hover:text-black text-white w-full my-4' type="submit">Sign Up</button>
+                    </div>
+                </form>
+            </Modal>
+
             <Container>
-                <Box>
+                <Box style={{
+                    zIndex: '-1'
+                }}>
                     <Carousel />
                 </Box>
                 <Box className='my-8'>
@@ -119,7 +221,9 @@ const About = () => {
                             With more then 150+ hand drawn traits, each NFT is unique and comes to a membership to an exclusive group of successful investors .Join an ambitious ever-growing community with multiple benefits and utilities.
                         </SubTextLight>
                     </Fade>
-                    <Button className='btn btn-outline' Link='#'>Apply For Membership</Button>
+                    <Button onClick={() => {
+                        openModal();
+                    }} className='btn btn-outline' Link='#'>Apply For Membership</Button>
                     {/* <SendButton text={"Apply For Membership"}></SendButton> */}
 
                 </Box>

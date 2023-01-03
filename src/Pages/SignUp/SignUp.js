@@ -14,6 +14,7 @@ const SignUp = () => {
 
     DynamicRouteHook('Sign Up');
 
+    // React Hook Form .
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const handleSignUp = (data) => {
         console.log(data)

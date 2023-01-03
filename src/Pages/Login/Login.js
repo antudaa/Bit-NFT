@@ -5,10 +5,13 @@ import { useForm } from "react-hook-form";
 import './Login.css';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
+import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
 
 
 
 const Login = () => {
+
+    DynamicRouteHook('Login');
 
     const { Login } = useContext(AuthContext);
 

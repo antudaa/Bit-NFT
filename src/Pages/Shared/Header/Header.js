@@ -45,7 +45,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className='flex'>
-                    <Link className="lg:mx-6 mx-2 normal-case text-xl">Bit  NFT</Link>
+                    <Link className="lg:mx-6 mx-2 normal-case text-lg font-bold md:text-xl">Bit  NFT</Link>
                     <img className='w-6 h-6' src={logo} alt="" />
                 </div>
             </div>
