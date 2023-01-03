@@ -4,6 +4,7 @@ import DashboardLayout from '../../../Layouts/Main/DashboardLayout';
 import Main from '../../../Layouts/Main/Main';
 import About from '../../About/About';
 import AdminDashBoard from '../../AdminDashBoard/AdminDashBoard';
+import MembershipRequest from '../../AdminDashBoard/MembershipRequest/MembershipRequest';
 import Contact from '../../Contact/Contact';
 import Error from '../../ErrorPage/Error';
 import HomePage from '../../Home/HomePage/HomePage';
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
             {
                 path: '/adminDashboard',
                 element: <AdminDashBoard></AdminDashBoard>
+            },
+            {
+                path: '/adminDashboard/membershipRequest',
+                element: <MembershipRequest></MembershipRequest>
             }
         ]
     },

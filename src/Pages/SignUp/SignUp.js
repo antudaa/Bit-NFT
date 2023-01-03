@@ -44,7 +44,7 @@ const SignUp = () => {
     return (
         <div className='bg-base-200'>
             <div>
-                <h2 className='py-6 text-2xl md:text-4xl lg:text-4xl text-center'>Welcome ! Please Register .</h2>
+                <h2 className='py-6 text-2xl md:text-4xl lg:text-4xl text-center'>Welcome To Bit NFT! Please Register .</h2>
             </div>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
