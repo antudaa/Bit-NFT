@@ -4,7 +4,7 @@ import Badge from '../Badge/Badge';
 
 
 const SiteInfoCard = styled.div`
-    height: 140%;
+    height: 100%;
     width: 14rem;
     background-color: white;
     border-radius: 1rem;

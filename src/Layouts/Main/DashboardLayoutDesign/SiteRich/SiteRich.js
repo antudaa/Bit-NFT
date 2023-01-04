@@ -51,7 +51,7 @@ const SiteRich = () => {
         <SiteRichCard>
             <CardContent>
                 <Chart>
-                    <i class="fa-solid fa-chart-simple"></i>
+                    <i className="fa-solid fa-chart-simple"></i>
                 </Chart>
                 <SiteRichText>
                     Last Weak Rich

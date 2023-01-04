@@ -22,23 +22,26 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                // const userInfo = {
-                //     displayName: data.name
-                // }
-                // updateUser(userInfo)
-                //     .then(() => {
-                //         // toast(`Welcome ${userInfo}`)
-                //         console.log(userInfo)
-                //     })
-                //     .catch((error) => {
-                //         toast(`${error.message}`)
-                //     })
+                handleUpdateUserProfile(data.name);
+                toast(`${data.name} welcome to Bit NFT`)
             })
             .catch(error => {
                 console.log(error)
                 toast.error(`${error.message}`)
             });
     };
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+        }
+
+        updateUser(profile)
+            .then(() => {
+                console.log(profile)
+            })
+            .catch(error => console.error(error));
+    }
 
 
 
@@ -93,7 +96,7 @@ const SignUp = () => {
                                 </div>
                                 <p className=' text-center'>Already have an account ? <Link to='/login' className='text-cyan-500'>Please Login.</Link> </p>
                             </form>
-                            
+
                         </div>
                     </div>
                 </div>

@@ -4,6 +4,7 @@ import Mode from '../../../Components/ThemeChanger/Mode';
 import logo from '../../../Components/Assets/Images/ape.png';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
+import ThemeChanger from '../../../Components/ThemeChanger/ThemeChanger';
 
 
 const Header = () => {
@@ -72,6 +73,9 @@ const Header = () => {
                 {/* <ThemeChanger /> */}
                 <div className='mx-4'>
                     <Mode />
+                </div>
+                <div className='hidden lg:flex'>
+                    <ThemeChanger/>
                 </div>
             </div>
             {

@@ -27,7 +27,7 @@ const Container = styled.div`
 
 const SubContainer = styled.div`
     margin: 0.5rem 0;
-    height: 80%;
+    height: 120%;
     width: 100%;
     display: flex;
     flex-direction: column;

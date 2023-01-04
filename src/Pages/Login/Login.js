@@ -41,16 +41,15 @@ const Login = () => {
 
     const googleProvider = new GoogleAuthProvider();
 
-    const handleGoogleLogin = () => {
+    const handleGoogleSignIn = () => {
         signInWithGoogle(googleProvider)
-            // setErrorMessage('')
             .then((result) => {
                 const user = result.user;
-                console.log(user);
-                toast('Login Successful ...');
+                console.log(user.displayName);
+                toast.success(`Login Successful. Welcome ${user.displayName}`);
             })
             .catch((error) => {
-                toast(error.message);
+                console.error(error);
             })
     }
 
@@ -94,7 +93,7 @@ const Login = () => {
                                 <p className=' text-center'>First time in Bit NFT ? <Link to='/signup' className='text-cyan-500'>Please Register</Link> </p>
                                 <div className="divider my-4 ">OR</div>
                             </form>
-                            <button onClick={handleGoogleLogin} className='btn border-none bg-slate-700 text-md hover:bg-teal-200 hover:text-black text-white w-full my-4' type="submit"><img className='w-6 mr-4' src={<i className="fa-brands fa-google"></i>} alt="" /> Continue With Google</button>
+                            <button onClick={handleGoogleSignIn} className='btn border-none bg-slate-700 text-md hover:bg-teal-200 hover:text-black text-white w-full my-4' type="submit"><img className='w-6 mr-4' src={<i className="fa-brands fa-google"></i>} alt="" /> Continue With Google</button>
                         </div>
                     </div>
                 </div>

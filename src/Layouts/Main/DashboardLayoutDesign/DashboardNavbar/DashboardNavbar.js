@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { AuthContext } from '../../../../Context/AuthProvider';
 
 
 const NavbarContainer = styled.nav`
@@ -54,15 +55,18 @@ const Input = styled.input`
 `;
 
 const DashboardNavbar = () => {
+
+    const { user } = useContext(AuthContext);
+
     return (
         <NavbarContainer>
             <Text>
                 Have A Good Day
-                <span>ANTU DAS</span>
+                <span>{user.displayName}</span>
             </Text>
             <InputContainer>
                 <Icon>
-                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i className="fa-solid fa-magnifying-glass"></i>
                 </Icon>
                 <Input type='text' placeholder="Search" />
             </InputContainer>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Badge from '../Badge/Badge';
 import avatar from '../../../../Components/Assets/Nfts/bighead-5.svg';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../../Context/AuthProvider';
 
 
 // Styed Component Starts
@@ -27,7 +28,7 @@ const ProfileContainer = styled.div`
 
 const Avatar = styled.img`
     height: 7rem;
-    border-radius; 6rem;
+    border-radius: 50%;
     margin-top: 20%;
 `;
 
@@ -68,11 +69,19 @@ const Links = styled.li`
 
 
 const SideBar = () => {
+
+    const { user } = useContext(AuthContext);
+
+
     return (
         <Container>
             <ProfileContainer>
-                <Avatar src={avatar} />
-                <Name>ANTU</Name>
+                {
+                    user?.photoURL ?
+                        <Avatar src={user.photoURL} /> :
+                        <></>
+                }
+                <Name>{user.displayName}</Name>
                 <Badge content="Admin" />
             </ProfileContainer>
             <LinkContainer>
