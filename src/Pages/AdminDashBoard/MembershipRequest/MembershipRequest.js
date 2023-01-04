@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import DynamicRouteHook from '../../../Components/DynamiRouteHook/DynamicRouteHook';
+import DashboardNavbar from '../../../Layouts/Main/DashboardLayoutDesign/DashboardNavbar/DashboardNavbar';
 
 const MembershipRequest = () => {
 
@@ -19,7 +20,10 @@ const MembershipRequest = () => {
 
 
     return (
-        <div>
+        <div >
+            <div className='mb-8'>
+                <DashboardNavbar />
+            </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* <!-- head --> */}
@@ -29,21 +33,16 @@ const MembershipRequest = () => {
                             <th>Email</th>
                             <th>Purpose</th>
                             <th>Verify</th>
-                            <th>Decline</th>
+                            <th>Decline Request</th>
                         </tr>
                     </thead>
                     <tbody>
                         {/* <!-- row 1 --> */}
                         {
                             membershipRequest.map((request, i) => (
-                                <tr>
+                                <tr key={i}>
                                     <td>
                                         <div className="flex items-center space-x-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
-                                                    <img src="" alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
                                             <div>
                                                 <div className="font-bold">{request.name}</div>
                                             </div>

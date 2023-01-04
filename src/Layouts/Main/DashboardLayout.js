@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Header from '../../Pages/Shared/Header/Header';
+import Badge from './DashboardLayoutDesign/Badge/Badge';
+import SideBar from './DashboardLayoutDesign/SideBar/SideBar';
 
 const DashboardLayout = () => {
     return (
@@ -13,11 +15,9 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side shadow-xl">
                     <label htmlFor="dashboard-side-navbar" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
-
-                        <li><Link to='/adminDashboard/membershipRequest'>Membership Request</Link></li>
-                        <li><Link to=''>Page Rich</Link></li>
-                    </ul>
+                    <div className="menu p-4 w-80 bg-base-100 text-base-content">
+                        <SideBar />
+                    </div>
 
                 </div>
             </div>
