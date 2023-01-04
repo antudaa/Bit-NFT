@@ -20,7 +20,9 @@ const MembershipRequest = () => {
 
 
     return (
-        <div >
+        <div style={{
+            marginTop: ''
+        }}>
             <div className='mb-8'>
                 <DashboardNavbar />
             </div>
@@ -43,6 +45,7 @@ const MembershipRequest = () => {
                                 <tr key={i}>
                                     <td>
                                         <div className="flex items-center space-x-3">
+
                                             <div>
                                                 <div className="font-bold">{request.name}</div>
                                             </div>

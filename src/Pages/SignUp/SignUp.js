@@ -92,9 +92,8 @@ const SignUp = () => {
                                     <button className='btn border-none bg-slate-700 text-md hover:bg-teal-200 hover:text-black text-white w-full my-4' type="submit">Sign Up</button>
                                 </div>
                                 <p className=' text-center'>Already have an account ? <Link to='/login' className='text-cyan-500'>Please Login.</Link> </p>
-                                <div className="divider my-4 ">OR</div>
                             </form>
-                            <button className='btn border-none bg-slate-700 text-md hover:bg-teal-200 hover:text-black text-white w-full my-4' type="submit"><img className='w-6 mr-4' src={<i className="fa-brands fa-google"></i>} alt="" /> Continue With Google</button>
+                            
                         </div>
                     </div>
                 </div>

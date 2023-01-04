@@ -177,7 +177,7 @@ const About = () => {
                             <span className="label-text">Name</span>
                         </label>
                         <input className="input input-bordered" placeholder='Name'
-                            {...register("name", { required: "Name Must have 4 or more character.", min: 8, max: 30 })}
+                            {...register("name", { required: "Name Must have 4 or more character.", min: 4, max: 30 })}
                             aria-invalid={errors.name ? "true" : "false"}
                         />
                         {errors.name && <p className='text-red-500' role="alert">{errors.name?.message}</p>}
@@ -194,8 +194,20 @@ const About = () => {
 
                     </div>
 
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Purpose Of Joining</span>
+                        </label>
+                        <input className="input input-bordered" placeholder='Purpose Of Joining'
+                            {...register("purpose", { required: "Required" })}
+                            aria-invalid={errors.purpose ? "true" : "false"}
+                        />
+                        {errors.purpose && <p className='text-red-500' role="alert">{errors.purpose?.message}</p>}
+
+                    </div>
+
                     <div className='mx-auto'>
-                        <button className='btn border-none bg-slate-700 text-md hover:bg-teal-200 hover:text-black text-white w-full my-4' type="submit">Sign Up</button>
+                        <button className='btn border-none bg-slate-700 text-md hover:bg-teal-400 hover:text-black text-white w-full my-4' type="submit">Submit</button>
                     </div>
                 </form>
             </Modal>

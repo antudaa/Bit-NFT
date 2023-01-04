@@ -7,11 +7,10 @@ const NavbarContainer = styled.nav`
     justify-content: space-between;
     align-items: center;
     height: 10%;
-    margin-top: -30%;
 
     @media screen and (min-width: 320px ) and (max-width: 1080px){
         flex-direction: column;
-        margin-bottom: 1rem;
+        margin-top: 70%;
     }
 `;
 
@@ -24,7 +23,7 @@ const Text = styled.h1`
     }
 
     @media screen and (min-width: 300px ) and (max-width: 560px){
-        font-size: 25px;
+        font-size: 20px;
     }
 `;
 

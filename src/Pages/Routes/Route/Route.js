@@ -5,6 +5,7 @@ import Main from '../../../Layouts/Main/Main';
 import About from '../../About/About';
 import AdminDashBoard from '../../AdminDashBoard/AdminDashBoard';
 import MembershipRequest from '../../AdminDashBoard/MembershipRequest/MembershipRequest';
+import Blog from '../../Blog/Blog';
 import Contact from '../../Contact/Contact';
 import Error from '../../ErrorPage/Error';
 import HomePage from '../../Home/HomePage/HomePage';
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <Contact />
+            },
+            {
+                path: '/blog',
+                element: <Blog />
             },
             {
                 path: '/login',

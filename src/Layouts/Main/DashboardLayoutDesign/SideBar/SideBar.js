@@ -78,7 +78,7 @@ const SideBar = () => {
             <LinkContainer>
                 <ContainerLinks>
                     <Links>
-                        <Link>Dashboard</Link>
+                        <Link to='/adminDashboard'>Dashboard</Link>
                     </Links>
                     <Links>
                         <Link to='/adminDashboard/membershipRequest'>Membership Request</Link>

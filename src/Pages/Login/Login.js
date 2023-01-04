@@ -6,6 +6,7 @@ import './Login.css';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 
 
@@ -13,7 +14,7 @@ const Login = () => {
 
     DynamicRouteHook('Login');
 
-    const { Login } = useContext(AuthContext);
+    const { Login, signInWithGoogle } = useContext(AuthContext);
 
     const location = useLocation();
     const navigate = useNavigate();
@@ -37,6 +38,23 @@ const Login = () => {
 
 
     };
+
+    const googleProvider = new GoogleAuthProvider();
+
+    const handleGoogleLogin = () => {
+        signInWithGoogle(googleProvider)
+            // setErrorMessage('')
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                toast('Login Successful ...');
+            })
+            .catch((error) => {
+                toast(error.message);
+            })
+    }
+
+
 
     return (
 
@@ -76,7 +94,7 @@ const Login = () => {
                                 <p className=' text-center'>First time in Bit NFT ? <Link to='/signup' className='text-cyan-500'>Please Register</Link> </p>
                                 <div className="divider my-4 ">OR</div>
                             </form>
-                            <button className='btn border-none bg-slate-700 text-md hover:bg-teal-200 hover:text-black text-white w-full my-4' type="submit"><img className='w-6 mr-4' src={<i className="fa-brands fa-google"></i>} alt="" /> Continue With Google</button>
+                            <button onClick={handleGoogleLogin} className='btn border-none bg-slate-700 text-md hover:bg-teal-200 hover:text-black text-white w-full my-4' type="submit"><img className='w-6 mr-4' src={<i className="fa-brands fa-google"></i>} alt="" /> Continue With Google</button>
                         </div>
                     </div>
                 </div>

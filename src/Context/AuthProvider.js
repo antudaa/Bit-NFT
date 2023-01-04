@@ -34,6 +34,12 @@ const AuthProvider = ({ children }) => {
         return updateProfile(user, userInfo);
     }
 
+    // Google login
+    const signInWithGoogle = (provider) => {
+        setLoading(true);
+        return signInWithGoogle(auth, provider);
+    }
+
 
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
@@ -50,6 +56,7 @@ const AuthProvider = ({ children }) => {
         Login,
         logOut,
         updateUser,
+        signInWithGoogle,
         user,
         loading,
     }

@@ -31,6 +31,7 @@ const Header = () => {
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box " style={{ width: '100vw' }}>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>
+                        <li><Link to="/blog">Blog</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/signup">Sign Up</Link></li>
 
@@ -53,6 +54,7 @@ const Header = () => {
                 <ul className="menu menu-horizontal px-1">
                     <Link className='mx-2' to="/">Home</Link>
                     <Link className='mx-2' to="/about">About</Link>
+                    <Link className='mx-2' to="/blog">Blog</Link>
                     <Link className='mx-2' to="/contact">Contact</Link>
                     <Link className='mx-2' to="/signup">Sign Up</Link>
                     {
