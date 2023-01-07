@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 import Carousel from './Carousel';
 import Bounce from 'react-reveal/Bounce';
@@ -8,7 +8,9 @@ import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook'
 // Importing React Modal
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 
 
@@ -113,9 +115,37 @@ Modal.setAppElement('#root');
 
 const About = () => {
 
+    const { user } = useContext(AuthContext);
+
     // React Form
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const handleSignUp = data => console.log(data);
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const handleMembershipRequest = data => {
+        console.log(data)
+        closeModal();
+        const request = {
+            name: data.name,
+            email: data.email,
+            purpose: data.purpose,
+            photo: user.photoURL
+        }
+        console.log(request);
+
+        fetch(`http://localhost:5000/membershipRequest`, {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(request)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    reset();
+                    toast("Your product added Successfully");
+                }
+            })
+            .catch(err => console.log(err.message));
+    };
 
     DynamicRouteHook('About');
 
@@ -162,7 +192,7 @@ const About = () => {
                         <div onClick={() => {
                             closeModal();
                         }} className='cursor-pointer'>
-                            <i class="fa-solid fa-xmark"></i>
+                            <i className="fa-solid fa-xmark"></i>
                         </div>
                         <h1 className='font-bold lg:text-2xl text-xl'>Request For Membership</h1>
                     </div>
@@ -171,45 +201,55 @@ const About = () => {
                 </div>
                 <br />
                 <hr />
-                <form onSubmit={handleSubmit(handleSignUp)}>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Name</span>
-                        </label>
-                        <input className="input input-bordered" placeholder='Name'
-                            {...register("name", { required: "Name Must have 4 or more character.", min: 4, max: 30 })}
-                            aria-invalid={errors.name ? "true" : "false"}
-                        />
-                        {errors.name && <p className='text-red-500' role="alert">{errors.name?.message}</p>}
-                    </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <input className="input input-bordered" placeholder='Email'
-                            {...register("email", { required: "Email Address is required" })}
-                            aria-invalid={errors.email ? "true" : "false"}
-                        />
-                        {errors.email && <p className='text-red-500' role="alert">{errors.email?.message}</p>}
+                {
+                    user?.uid ?
+                        <form onSubmit={handleSubmit(handleMembershipRequest)}>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input className="input input-bordered bg-white" placeholder='Name' value={user.displayName}
+                                    {...register("name", { required: "Name Must have 4 or more character.", min: 4, max: 30 })}
+                                    aria-invalid={errors.name ? "true" : "false"}
+                                />
+                                {errors.name && <p className='text-red-500' role="alert">{errors.name?.message}</p>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input className="input input-bordered bg-white" placeholder='Email' value={user.email}
+                                    {...register("email", { required: "Email Address is required" })}
+                                    aria-invalid={errors.email ? "true" : "false"}
+                                />
+                                {errors.email && <p className='text-red-500' role="alert">{errors.email?.message}</p>}
 
-                    </div>
+                            </div>
 
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Purpose Of Joining</span>
-                        </label>
-                        <input className="input input-bordered" placeholder='Purpose Of Joining'
-                            {...register("purpose", { required: "Required" })}
-                            aria-invalid={errors.purpose ? "true" : "false"}
-                        />
-                        {errors.purpose && <p className='text-red-500' role="alert">{errors.purpose?.message}</p>}
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Purpose Of Joining</span>
+                                </label>
+                                <input className="input input-bordered bg-white" placeholder='Purpose Of Joining'
+                                    {...register("purpose", { required: "Required" })}
+                                    aria-invalid={errors.purpose ? "true" : "false"}
+                                />
+                                {errors.purpose && <p className='text-red-500' role="alert">{errors.purpose?.message}</p>}
 
-                    </div>
+                            </div>
 
-                    <div className='mx-auto'>
-                        <button className='btn border-none bg-slate-700 text-md hover:bg-teal-400 hover:text-black text-white w-full my-4' type="submit">Submit</button>
-                    </div>
-                </form>
+                            <div className='mx-auto'>
+                                <button className='btn border-none bg-slate-700 text-md hover:bg-teal-400 hover:text-black text-white w-full my-4' type="submit">Submit</button>
+                            </div>
+                        </form> :
+                        <>
+                            <p>Please Login First To Send a Membership Request.</p>
+                            <div className='mx-auto'>
+                                <Link to='/login' className='btn border-none bg-slate-700 text-md hover:bg-teal-400 hover:text-black text-white w-full my-4' type="submit">Login</Link>
+                            </div>
+                        </>
+
+                }
             </Modal>
 
             <Container>

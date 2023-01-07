@@ -5,6 +5,8 @@ import Main from '../../../Layouts/Main/Main';
 import About from '../../About/About';
 import AdminDashBoard from '../../AdminDashBoard/AdminDashBoard';
 import MembershipRequest from '../../AdminDashBoard/MembershipRequest/MembershipRequest';
+import ProfileSection from '../../AdminDashBoard/ProfileSection/ProfileSection';
+import WeatherApp from '../../AdminDashBoard/WeatherApp/WeatherApp';
 import Blog from '../../Blog/Blog';
 import Contact from '../../Contact/Contact';
 import Error from '../../ErrorPage/Error';
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
             {
                 path: '/adminDashboard/membershipRequest',
                 element: <MembershipRequest></MembershipRequest>
+            },
+            {
+                path: '/adminDashboard/profileSection',
+                element: <ProfileSection />
+            },
+            {
+                path: '/adminDashboard/weather',
+                element: <WeatherApp />
             }
         ]
     },

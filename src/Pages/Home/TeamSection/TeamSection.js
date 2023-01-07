@@ -31,9 +31,9 @@ const TeamSection = () => {
                 <span data-aos="fade-down">Our Team</span>
             </Title>
             <div className='team-section'>
-                <div class="carousel">
-                    <div class="carousel-content">
-                        <div class="carousel-item">
+                <div className="carousel">
+                    <div className="carousel-content">
+                        <div className="carousel-item">
                             <img src={antu} alt="pic" />
                             <div className='title'>
                                 <span className='text-white text-2xl ml-8 title-name'>ANTU</span>
@@ -41,7 +41,7 @@ const TeamSection = () => {
                             </div>
                         </div>
 
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                             <img src={nirjhor} alt="pic" />
                             <div className='title'>
                                 <span className='text-white text-2xl ml-8 title-name'>NIRJHOR</span>
@@ -49,7 +49,7 @@ const TeamSection = () => {
                             </div>
                         </div>
 
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                             <img src={satirtha} alt="pic" />
                             <div className='title'>
                                 <span className='text-white text-2xl ml-8 title-name'>SATIRTHA</span>
@@ -57,7 +57,7 @@ const TeamSection = () => {
                             </div>
                         </div>
 
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                             <img src={misti} alt="pic" />
                             <div className='title'>
                                 <span className='text-white text-2xl ml-8 title-name'>MISTI</span>
@@ -65,7 +65,7 @@ const TeamSection = () => {
                             </div>
                         </div>
 
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                             <img src={ayon} alt="pic" />
                             <div className='title'>
                                 <span className='text-white text-2xl ml-8 title-name'>AYON</span>
@@ -73,7 +73,7 @@ const TeamSection = () => {
                             </div>
                         </div>
 
-                        <div class="carousel-item">
+                        <div className="carousel-item">
                             <img src={nayon} alt="pic" />
                             <div className='title'>
                                 <span className='text-white text-2xl ml-8 title-name'>NAYON</span>

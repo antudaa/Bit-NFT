@@ -14,9 +14,12 @@ const MembershipRequest = () => {
             const data = await res.json();
             return data;
         }
-    })
+    });
 
-    console.log(membershipRequest);
+
+    const handleAccept = (data) => {
+        console.log(data);
+    }
 
 
     return (
@@ -54,9 +57,9 @@ const MembershipRequest = () => {
                                     <td>
                                         <div className="badge badge-ghost badge-sm">{request.email}</div>
                                     </td>
-                                    <td>{request.Purpose}</td>
+                                    <td >{request.purpose.slice(0, 26)}...</td>
                                     <th>
-                                        <button className="btn btn-primary pt-4 pb-6 px-4 btn-xs">Verify</button>
+                                        <button onClick={() => handleAccept(request)} className="btn btn-primary pt-4 pb-6 px-4 btn-xs">Accept</button>
                                     </th>
                                     <th>
                                         <button className="btn btn-warning pt-4 pb-6 px-4 btn-xs">Decline</button>
@@ -69,7 +72,7 @@ const MembershipRequest = () => {
 
                 </table>
             </div>
-        </div>
+        </div >
     );
 };
 

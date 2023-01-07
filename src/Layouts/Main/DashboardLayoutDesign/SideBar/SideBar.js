@@ -90,10 +90,16 @@ const SideBar = () => {
                         <Link to='/adminDashboard'>Dashboard</Link>
                     </Links>
                     <Links>
+                        <Link to='/adminDashboard/profileSection'>Profile</Link>
+                    </Links>
+                    <Links>
                         <Link to='/adminDashboard/membershipRequest'>Membership Request</Link>
                     </Links>
                     <Links>
                         <Link>Blogs</Link>
+                    </Links>
+                    <Links>
+                        <Link to='/adminDashboard/weather'>Weather</Link>
                     </Links>
                 </ContainerLinks>
             </LinkContainer>
