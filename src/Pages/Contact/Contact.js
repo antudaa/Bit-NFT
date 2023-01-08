@@ -1,5 +1,4 @@
-import React, { useRef } from 'react';
-import { content } from '../../Components/Content/Content';
+import React from 'react';
 import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
 // import emailjs from '@emailjs/browser';
 // import toast, { Toaster } from "react-hot-toast";
@@ -10,8 +9,8 @@ const Contact = () => {
 
     DynamicRouteHook('Contact');
 
-    const { Contact } = content;
-    const form = useRef();
+    // const { Contact } = content;
+    // const form = useRef();
 
     // Sending Email
     // const sendEmail = (e) => {
@@ -46,7 +45,7 @@ const Contact = () => {
                         <div className="contact-widget">
                             <div className="contact-widget-item">
                                 <div className="icon">
-                                    <i class='fa-solid fa-location-dot'></i>
+                                    <i className='fa-solid fa-location-dot'></i>
                                 </div>
                                 <div className="text">
                                     <h5>Address</h5>
@@ -55,7 +54,7 @@ const Contact = () => {
                             </div>
                             <div className="contact-widget-item">
                                 <div className="icon">
-                                    <i class='fa-solid fa-phone'></i>
+                                    <i className='fa-solid fa-phone'></i>
                                 </div>
                                 <div className="text">
                                     <h5>Contact Us</h5>
@@ -64,7 +63,7 @@ const Contact = () => {
                             </div>
                             <div className="contact-widget-item">
                                 <div className="icon">
-                                    <i class='fa-regular fa-envelope'></i>
+                                    <i className='fa-regular fa-envelope'></i>
                                 </div>
                                 <div className="text">
                                     <h5>Email</h5>
@@ -91,10 +90,10 @@ const Contact = () => {
                                 width="600"
                                 height="450"
                                 style={{ border: 0 }}
-                                allowfullscreen=""
+                                allowFullScreen=""
                                 loading="lazy"
                                 title='ANTU'
-                                referrerpolicy="no-referrer-when-downgrade">
+                                referrerPolicy="no-referrer-when-downgrade">
 
                             </iframe>
                         </div>

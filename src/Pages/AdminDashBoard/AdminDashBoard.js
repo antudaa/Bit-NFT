@@ -73,10 +73,16 @@ const ColumnOne1 = styled.div`
 `;
 
 const ColumnOne2 = styled.div`
+    @media screen and (min-width: 300px ) and (max-width: 560px){
+        display: flex; 
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
 `;
 
 const BlogRequestContainer = styled.div`
-
+    
 `;
 
 const ColumnTwo1 = styled.div`

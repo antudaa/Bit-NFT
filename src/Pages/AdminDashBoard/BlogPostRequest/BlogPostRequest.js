@@ -1,7 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import styled from 'styled-components';
-import img1 from '../../../Components/Assets/Nfts/bighead-3.svg';
-import img2 from '../../../Components/Assets/Nfts/bighead-8.svg';
 
 
 const BlogRequestContainer = styled.div`
@@ -18,10 +18,20 @@ const BlogRequestContainer = styled.div`
     &:hover{
         box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
     }
+
+    @media screen and (min-width: 300px ) and (max-width: 560px){
+        margin-top: -80%;
+        width: 120%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 `;
 
 const CardContent = styled.div`
-
+    @media screen and (min-width: 300px) and (max-width: 1000px){
+        margin-top: -30%;
+    }
 `;
 
 const Blog = styled.div`
@@ -30,12 +40,24 @@ const Blog = styled.div`
     justify-content: space-around;
     margin: 0.4rem;
     padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+
+    @media screen and (min-width: 300px) and (max-width: 1000px){
+        flex-direction: column;
+        gap: 1rem;
+    }
 `;
 
 const Info = styled.div`
     display: flex;
     align-items: center;
     width: 50%;
+
+    @media screen and (min-width: 300px) and (max-width: 1000px){
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
 `;
 
 const Avatar = styled.div`
@@ -48,6 +70,7 @@ const Avatar = styled.div`
 
 const TextContainer = styled.div`
     margin-left: 1rem;
+    color: black;
 `;
 
 const Title = styled.h4`
@@ -63,61 +86,80 @@ const Container = styled.div`
     justify-content: space-between;
     width: 30%;
     align-items: center;
+
+    @media screen and (min-width: 300px) and (max-width: 1000px){
+        width: 100%;
+        flex-direction: column;
+        gap: 0.6rem;
+    }
 `;
 
 
 
 const BlogPostRequest = () => {
+
+    const { data: postBlog = [], refetch } = useQuery({
+        queryKey: ['postBlog'],
+        queryFn: async () => {
+            const res = await fetch('http://localhost:5000/postBlog');
+            const data = await res.json();
+            return data;
+        }
+    });
+
+
+    const handleDelete = (id) => {
+        console.log(id);
+        const proceed = window.confirm("Are you sure? You want to delete this request!");
+        if (proceed) {
+            fetch(`http://localhost:5000/postBlog/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount > 0) {
+                        toast.success(`Request Successfully Deleted.`)
+                        refetch();
+                    }
+                })
+                .catch((error) => console.log(error.message));
+        }
+    }
+
+
     return (
         <BlogRequestContainer>
             <CardContent>
-                <Blog>
-                    <Info>
-                        <Avatar>
-                            <img src={img1} alt="" />
-                        </Avatar>
-                        <TextContainer>
-                            <Title>Nirjhor</Title>
-                            <Subtitle>ABC</Subtitle>
-                        </TextContainer>
-                    </Info>
-                    <Container>
-                        <button className='mr-4' style={{
-                            backgroundColor: '#58D68D',
-                            padding: '10px',
-                            borderRadius: '24px'
-                        }}>Accept</button>
-                        <button style={{
-                            backgroundColor: '#F39C12',
-                            padding: '10px',
-                            borderRadius: '26px'
-                        }}>Decline</button>
-                    </Container>
-                </Blog>
+                {
+                    postBlog.map((post) =>
+                        <Blog key={post._id}>
+                            <Info>
+                                <Avatar>
+                                    <img src={post.authorImage} alt="postBlog" />
+                                </Avatar>
+                                <TextContainer>
+                                    <Title>{post.author}</Title>
+                                    <Subtitle>Date: {post.date}...</Subtitle>
+                                </TextContainer>
+                            </Info>
+                            <Container>
+                                <button className='mr-4' style={{
+                                    backgroundColor: '#58D68D',
+                                    color: 'black',
+                                    padding: '10px',
+                                    borderRadius: '24px'
+                                }}>Accept</button>
+                                <button onClick={() => handleDelete(post._id)} style={{
+                                    backgroundColor: '#F39C12',
+                                    color: 'black',
+                                    padding: '10px',
+                                    borderRadius: '26px'
+                                }}>Decline</button>
+                            </Container>
+                        </Blog>
+                    )
+                }
 
-                <Blog>
-                    <Info>
-                        <Avatar>
-                            <img src={img2} alt="" />
-                        </Avatar>
-                        <TextContainer>
-                            <Title>Nirjhor</Title>
-                            <Subtitle>ABC</Subtitle>
-                        </TextContainer>
-                    </Info>
-                    <Container>
-                        <button className='mr-4' style={{
-                            backgroundColor: '#58D68D',
-                            padding: '10px',
-                            borderRadius: '24px'
-                        }}>Accept</button>
-                        <button style={{
-                            backgroundColor: '#F39C12',
-                            padding: '10px',
-                            borderRadius: '26px'
-                        }}>Decline</button>
-                    </Container>
-                </Blog>
             </CardContent>
         </BlogRequestContainer>
     );

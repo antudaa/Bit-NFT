@@ -174,7 +174,8 @@ const About = () => {
         }
     });
 
-    console.log(membersList);
+    console.log(membersList)
+
 
     return (
         <Section className='pt-8 pb-16'>
@@ -294,7 +295,6 @@ const About = () => {
                                 openModal();
                             }} className='btn btn-outline' Link='#'>Apply For Membership</Button>
                     }
-                    {/* <SendButton text={"Apply For Membership"}></SendButton> */}
 
                 </Box>
             </Container>

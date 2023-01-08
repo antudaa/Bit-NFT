@@ -94,8 +94,8 @@ const SideBar = () => {
                 <Name>{user.displayName}</Name>
                 {
                     membersList?.status ?
-                    <Badge content={membersList.status} />:
-                    <></>
+                        <Badge content={membersList.status} /> :
+                        <></>
                 }
             </ProfileContainer>
             <LinkContainer>

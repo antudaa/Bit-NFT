@@ -16,7 +16,6 @@ const ProfileSection = () => {
             return data;
         }
     });
-    console.log(membersList);
 
     return (
         <div>

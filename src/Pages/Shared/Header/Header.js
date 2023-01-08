@@ -5,6 +5,7 @@ import logo from '../../../Components/Assets/Images/ape.png';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import ThemeChanger from '../../../Components/ThemeChanger/ThemeChanger';
+import { useQuery } from '@tanstack/react-query';
 
 
 const Header = () => {
@@ -19,7 +20,17 @@ const Header = () => {
             .catch((error) => {
                 toast(`${error.message}`);
             })
-    }
+    };
+
+
+    const { data: membersList = [] } = useQuery({
+        queryKey: ['membersList'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/membersList/${user.email}`);
+            const data = await res.json();
+            return data;
+        }
+    });
 
 
     return (
@@ -59,9 +70,13 @@ const Header = () => {
                     <Link className='mx-2' to="/contact">Contact</Link>
                     <Link className='mx-2' to="/signup">Sign Up</Link>
                     {
+                        membersList?.status ?
+                            <Link className='mx-2' to="/adminDashboard">Admin Dashboard</Link> :
+                            <></>
+                    }
+                    {
                         user?.uid ?
                             <>
-                                <Link className='mx-2' to="/adminDashboard">Admin Dashboard</Link>
                                 <Link className='mx-2' onClick={handleLogOut} to="">Log Out</Link>
                             </> :
                             <Link className='mx-2' to="/login">Login</Link>
@@ -75,7 +90,7 @@ const Header = () => {
                     <Mode />
                 </div>
                 <div className='hidden lg:flex'>
-                    <ThemeChanger/>
+                    <ThemeChanger />
                 </div>
             </div>
             {

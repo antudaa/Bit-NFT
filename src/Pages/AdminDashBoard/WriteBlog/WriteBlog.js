@@ -39,6 +39,7 @@ const WriteBlog = () => {
             author: user.displayName,
             authorImage: user.photoURL,
             date: data.date,
+            authorEmail: user.email,
         }
 
         console.log(postInfo);

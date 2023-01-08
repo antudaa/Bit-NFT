@@ -8,7 +8,7 @@ const MembershipRequest = () => {
 
     DynamicRouteHook('Admin Panel');
 
-    const { data: membershipRequest = [] } = useQuery({
+    const { data: membershipRequest = [], refetch } = useQuery({
         queryKey: ['membershipRequest'],
         queryFn: async () => {
             const res = await fetch('http://localhost:5000/membershipRequest');
@@ -52,6 +52,7 @@ const MembershipRequest = () => {
                 .then(data => {
                     if (data.deletedCount > 0) {
                         toast.success(`Request Successfully Deleted.`)
+                        refetch();
                     }
                 })
                 .catch((error) => console.log(error.message));
