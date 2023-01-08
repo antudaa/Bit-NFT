@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import logo1 from '../../../../Components/Assets/Nfts/bighead-6.svg';
 import logo2 from '../../../../Components/Assets/Nfts/bighead-1.svg';
+import { Link } from 'react-router-dom';
 
 
 const BlogPost = styled.div`
@@ -73,7 +74,7 @@ const BlogPostsInfo = () => {
                     <SubTitle>Posted 3 day ago.</SubTitle>
                 </Details>
             </Blog>
-            <AllBlogs>See all blogs</AllBlogs>
+            <AllBlogs> <Link to='/blog'>See all blogs</Link> </AllBlogs>
         </BlogPost>
     );
 };

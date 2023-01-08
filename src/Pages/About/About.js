@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import { Link, Navigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { useQuery } from '@tanstack/react-query';
 
 
 
@@ -162,6 +163,19 @@ const About = () => {
         setIsOpen(false);
     }
 
+
+    // Getting Member Data.
+    const { data: membersList = [] } = useQuery({
+        queryKey: ['membersList'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/membersList/${user.email}`);
+            const data = await res.json();
+            return data;
+        }
+    });
+
+    console.log(membersList);
+
     return (
         <Section className='pt-8 pb-16'>
 
@@ -273,9 +287,13 @@ const About = () => {
                             With more then 150+ hand drawn traits, each NFT is unique and comes to a membership to an exclusive group of successful investors .Join an ambitious ever-growing community with multiple benefits and utilities.
                         </SubTextLight>
                     </Fade>
-                    <Button onClick={() => {
-                        openModal();
-                    }} className='btn btn-outline' Link='#'>Apply For Membership</Button>
+                    {
+                        membersList?.status ?
+                            <></> :
+                            <Button onClick={() => {
+                                openModal();
+                            }} className='btn btn-outline' Link='#'>Apply For Membership</Button>
+                    }
                     {/* <SendButton text={"Apply For Membership"}></SendButton> */}
 
                 </Box>

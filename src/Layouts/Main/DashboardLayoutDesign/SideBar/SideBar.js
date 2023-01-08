@@ -4,6 +4,7 @@ import avatar from '../../../../Components/Assets/Nfts/bighead-5.svg';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../Context/AuthProvider';
+import { useQuery } from '@tanstack/react-query';
 
 
 // Styed Component Starts
@@ -72,6 +73,16 @@ const SideBar = () => {
 
     const { user } = useContext(AuthContext);
 
+    const { data: membersList = [] } = useQuery({
+        queryKey: ['membersList'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/membersList/${user.email}`);
+            const data = await res.json();
+            return data;
+        }
+    });
+
+
 
     return (
         <Container>
@@ -82,18 +93,24 @@ const SideBar = () => {
                         <></>
                 }
                 <Name>{user.displayName}</Name>
-                <Badge content="Admin" />
+                <Badge content={membersList.status} />
             </ProfileContainer>
             <LinkContainer>
                 <ContainerLinks>
-                    <Links>
-                        <Link to='/adminDashboard'>Dashboard</Link>
-                    </Links>
+                    {
+                        membersList?.status === 'Admin' ?
+                            <>
+                                <Links>
+                                    <Link to='/adminDashboard'>Dashboard</Link>
+                                </Links>
+                                <Links>
+                                    <Link to='/adminDashboard/membershipRequest'>Membership Request</Link>
+                                </Links>
+                            </> :
+                            <></>
+                    }
                     <Links>
                         <Link to='/adminDashboard/profileSection'>Profile</Link>
-                    </Links>
-                    <Links>
-                        <Link to='/adminDashboard/membershipRequest'>Membership Request</Link>
                     </Links>
                     <Links>
                         <Link>Blogs</Link>
