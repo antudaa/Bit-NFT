@@ -8,7 +8,7 @@ import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook'
 // Importing React Modal
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { useQuery } from '@tanstack/react-query';
@@ -142,7 +142,7 @@ const About = () => {
             .then(data => {
                 if (data.acknowledged) {
                     reset();
-                    toast("Your product added Successfully");
+                    toast.success("Your product added Successfully");
                 }
             })
             .catch(err => console.log(err.message));

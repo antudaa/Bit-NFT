@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import Badge from '../Badge/Badge';
-import avatar from '../../../../Components/Assets/Nfts/bighead-5.svg';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../../Context/AuthProvider';
@@ -93,7 +92,11 @@ const SideBar = () => {
                         <></>
                 }
                 <Name>{user.displayName}</Name>
-                <Badge content={membersList.status} />
+                {
+                    membersList?.status ?
+                    <Badge content={membersList.status} />:
+                    <></>
+                }
             </ProfileContainer>
             <LinkContainer>
                 <ContainerLinks>
@@ -101,7 +104,7 @@ const SideBar = () => {
                         membersList?.status === 'Admin' ?
                             <>
                                 <Links>
-                                    <Link to='/adminDashboard'>Dashboard</Link>
+                                    <Link to='/adminDashboard/admin'>Dashboard</Link>
                                 </Links>
                                 <Links>
                                     <Link to='/adminDashboard/membershipRequest'>Membership Request</Link>
@@ -110,10 +113,10 @@ const SideBar = () => {
                             <></>
                     }
                     <Links>
-                        <Link to='/adminDashboard/profileSection'>Profile</Link>
+                        <Link to='/adminDashboard'>Profile</Link>
                     </Links>
                     <Links>
-                        <Link>Blogs</Link>
+                        <Link to='/adminDashboard/blog'>Write Blog</Link>
                     </Links>
                     <Links>
                         <Link to='/adminDashboard/weather'>Weather</Link>

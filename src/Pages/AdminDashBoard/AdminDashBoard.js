@@ -4,6 +4,7 @@ import BlogPostsInfo from '../../Layouts/Main/DashboardLayoutDesign/BlogPostInfo
 import DashboardNavbar from '../../Layouts/Main/DashboardLayoutDesign/DashboardNavbar/DashboardNavbar';
 import SiteInfo from '../../Layouts/Main/DashboardLayoutDesign/SiteInfo/SiteInfo';
 import SiteRich from '../../Layouts/Main/DashboardLayoutDesign/SiteRich/SiteRich';
+import BlogPostRequest from './BlogPostRequest/BlogPostRequest';
 
 
 const TitleText = styled.h3`
@@ -72,6 +73,9 @@ const ColumnOne1 = styled.div`
 `;
 
 const ColumnOne2 = styled.div`
+`;
+
+const BlogRequestContainer = styled.div`
 
 `;
 
@@ -110,7 +114,12 @@ const AdminDashBoard = () => {
                     </ColumnTwo1>
                 </SectionOne>
                 <SectionTwo>
-                    <ColumnOne2></ColumnOne2>
+                    <ColumnOne2>
+                        <BlogRequestContainer>
+                            <TitleText>Blog Requests</TitleText>
+                            <BlogPostRequest />
+                        </BlogRequestContainer>
+                    </ColumnOne2>
                     <ColumnTwo2></ColumnTwo2>
                 </SectionTwo>
             </SubContainer>

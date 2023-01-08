@@ -7,6 +7,7 @@ import AdminDashBoard from '../../AdminDashBoard/AdminDashBoard';
 import MembershipRequest from '../../AdminDashBoard/MembershipRequest/MembershipRequest';
 import ProfileSection from '../../AdminDashBoard/ProfileSection/ProfileSection';
 import WeatherApp from '../../AdminDashBoard/WeatherApp/WeatherApp';
+import WriteBlog from '../../AdminDashBoard/WriteBlog/WriteBlog';
 import Blog from '../../Blog/Blog';
 import Contact from '../../Contact/Contact';
 import Error from '../../ErrorPage/Error';
@@ -52,19 +53,23 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/adminDashboard',
+                element: <ProfileSection />
+            },
+            {
+                path: '/adminDashboard/admin',
                 element: <AdminDashBoard></AdminDashBoard>
             },
             {
                 path: '/adminDashboard/membershipRequest',
-                element: <MembershipRequest></MembershipRequest>
-            },
-            {
-                path: '/adminDashboard/profileSection',
-                element: <ProfileSection />
+                element: <MembershipRequest />
             },
             {
                 path: '/adminDashboard/weather',
                 element: <WeatherApp />
+            },
+            {
+                path: '/adminDashboard/blog',
+                element: <WriteBlog />
             }
         ]
     },
