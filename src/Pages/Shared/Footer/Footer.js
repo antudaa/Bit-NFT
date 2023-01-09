@@ -47,12 +47,12 @@ const Footer = () => {
                 <div className='col'>
                     <h3>Links <div className="underline"><span></span></div></h3>
                     <ul>
-                        <li><Link>Home</Link></li>
-                        <li><Link>About</Link></li>
-                        <li><Link>Blog</Link></li>
-                        <li><Link>Services</Link></li>
-                        <li><Link>Login</Link></li>
-                        <li><Link>Sign Up</Link></li>
+                        <li><Link t0='/'>Home</Link></li>
+                        <li><Link t0='/about'>About</Link></li>
+                        <li><Link t0='/blog'>Blog</Link></li>
+                        <li><Link t0='/'>Services</Link></li>
+                        <li><Link t0='/login'>Login</Link></li>
+                        <li><Link t0='/signup'>Sign Up</Link></li>
                     </ul>
                 </div>
                 <div className='col'>
