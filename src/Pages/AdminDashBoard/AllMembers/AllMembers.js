@@ -35,11 +35,11 @@ const AllMembers = () => {
         <div style={{
         }}>
             <div className=''>
-                <h2 className='text-2xl lg:text-4xl text-center my-6'>All Our Members Details...</h2>
+                <h2 data-aos="fade-down" className='text-2xl lg:text-4xl text-center my-6'>All Our Members Details...</h2>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10'>
                 {
-                    allMembers.map((member) => <FlipCard key={member._id} member={member} handleDelete={handleDelete} />)
+                    allMembers.map((member) => <FlipCard data-aos="fade-up" key={member._id} member={member} handleDelete={handleDelete} />)
                 }
             </div>
         </div>

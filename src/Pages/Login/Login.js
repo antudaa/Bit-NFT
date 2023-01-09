@@ -21,7 +21,7 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/';
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const handleLogin = (data) => {
         console.log(data)
         Login(data.email, data.password)
@@ -61,7 +61,7 @@ const Login = () => {
             <div>
                 <h2 className='py-6 text-2xl md:text-4xl lg:text-4xl text-center'>Welcome ! Please Login .</h2>
             </div>
-            <div className="hero min-h-screen bg-base-200">
+            <div data-aos="fade-up" className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <img src={LoginImage} className="lg:max-w-xl rounded-lg shadow-2xl w-86" alt='' />
                     <div className="card w-86 lg:max-w-xl flex-shrink-0 shadow-2xl bg-base-100">

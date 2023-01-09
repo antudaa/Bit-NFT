@@ -5,12 +5,11 @@ import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook'
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
-import { GoogleAuthProvider } from 'firebase/auth';
 
 
 const SignUp = () => {
 
-    const { createUserWithEmail, updateUser, signInWithGoogle } = useContext(AuthContext);
+    const { createUserWithEmail, updateUser } = useContext(AuthContext);
 
     // Imagebb Host Key
     const imageHostKey = process.env.REACT_APP_imagebb_API_Key;
@@ -19,7 +18,7 @@ const SignUp = () => {
     DynamicRouteHook('Sign Up');
 
     // React Hook Form .
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const handleSignUp = (data) => {
         const image = data.image[0];
         const formData = new FormData();
@@ -67,29 +66,13 @@ const SignUp = () => {
     }
 
 
-    // Google Sign In
-    const googleProvider = new GoogleAuthProvider();
-
-    const handleGoogleSignIn = () => {
-        signInWithGoogle(googleProvider)
-            .then((result) => {
-                const user = result.user;
-                console.log(user.displayName);
-                toast.success(`Login Successful. Welcome ${user.displayName}`);
-            })
-            .catch((error) => {
-                console.error(error);
-            })
-    }
-
-
 
     return (
         <div className='bg-base-200'>
             <div>
                 <h2 className='py-6 text-2xl md:text-4xl lg:text-4xl text-center'>Welcome To Bit NFT! Please Register .</h2>
             </div>
-            <div className="hero min-h-screen bg-base-200">
+            <div data-aos="fade-up" className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <img src={signUpImage} className="lg:max-w-xl rounded-lg shadow-2xl w-86" alt='' />
                     <div className="card w-86 lg:max-w-xl flex-shrink-0 shadow-2xl bg-base-100">

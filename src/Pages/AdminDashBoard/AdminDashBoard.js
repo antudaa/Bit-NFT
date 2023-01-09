@@ -120,7 +120,7 @@ const AdminDashBoard = () => {
                     </ColumnTwo1>
                 </SectionOne>
                 <SectionTwo>
-                    <ColumnOne2>
+                    <ColumnOne2 >
                         <BlogRequestContainer>
                             <TitleText>Blog Requests</TitleText>
                             <BlogPostRequest />

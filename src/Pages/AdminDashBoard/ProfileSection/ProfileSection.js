@@ -30,7 +30,7 @@ const ProfileSection = () => {
     return (
         <div>
             <div className=''>
-                <div className='mt-[10%] ml-[30%] lg:ml-[40%]'>
+                <div data-aos="fade-down" className='mt-[10%] ml-[30%] lg:ml-[40%]'>
                     <div>
                         <img style={{
                             borderRadius: '50%',
@@ -50,7 +50,7 @@ const ProfileSection = () => {
                 <div className='text-center text-2xl'>
                     <h5>{membersList.purpose}</h5>
                 </div>
-                <div>
+                <div data-aos="fade-up">
                     {
                         approvedBlogs.map((blog) =>
                             <div className=''

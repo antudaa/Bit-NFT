@@ -22,7 +22,7 @@ const Blog = () => {
                 <div className=''>
                     {
                         approvedBlogs.map((blog) =>
-                            <div className=''
+                            <div data-aos="fade-up" className=''
                                 key={blog._id} style={{
                                     backgroundColor: 'rgba(0, 0, 0, 0)',
                                 }}>

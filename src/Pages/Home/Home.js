@@ -51,10 +51,10 @@ const Home = () => {
     return (
         <Section>
             <Container>
-                <Article>
+                <Article data-aos="fade-right">
                     <TypewriterText />
                 </Article>
-                <Article>
+                <Article data-aos="fade-left">
                     <BannerVideo />
                 </Article>
             </Container>

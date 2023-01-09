@@ -11,7 +11,7 @@ const NavbarContainer = styled.nav`
 
     @media screen and (min-width: 320px ) and (max-width: 1080px){
         flex-direction: column;
-        margin-top: 70%;
+        margin-top: 10%;
     }
 `;
 

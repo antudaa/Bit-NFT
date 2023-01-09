@@ -40,7 +40,7 @@ const Contact = () => {
                 <h2>Contact Us</h2>
             </div>
             <div className="container">
-                <div className="row">
+                <div data-aos="fade-up" className="row">
                     <div className="column">
                         <div className="contact-widget">
                             <div className="contact-widget-item">
@@ -85,7 +85,7 @@ const Contact = () => {
                 </div>
                 <div className="row">
                     <div className="map-column">
-                        <div className="contact-map">
+                        <div data-aos="fade-up" className="contact-map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.0335829481446!2d91.80975111476931!3d22.502923141195996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd77851e5fba9%3A0x77e59f952a3fb977!2sHathazari%20College%20Gate!5e0!3m2!1sen!2sbd!4v1672433997204!5m2!1sen!2sbd"
                                 width="600"
                                 height="450"
