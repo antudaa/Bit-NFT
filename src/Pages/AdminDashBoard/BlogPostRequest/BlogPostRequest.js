@@ -109,21 +109,44 @@ const BlogPostRequest = () => {
 
 
     const handleDelete = (id) => {
-        console.log(id);
-        const proceed = window.confirm("Are you sure? You want to delete this request!");
-        if (proceed) {
-            fetch(`http://localhost:5000/postBlog/${id}`, {
-                method: 'DELETE'
+
+        fetch(`http://localhost:5000/postBlog/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    toast.success(`Request Successfully Deleted.`)
+                    refetch();
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        toast.success(`Request Successfully Deleted.`)
-                        refetch();
-                    }
-                })
-                .catch((error) => console.log(error.message));
+            .catch((error) => console.log(error.message));
+    }
+
+
+    const handleAccept = (data) => {
+        const info = {
+            authorName: data.author,
+            authorEmail: data.authorEmail,
+            authorImg: data.authorImage,
+            postTime: data.date,
+            description: data.postDescription,
+            title: data.postTitle,
+            postImage: data.postImage,
         }
+
+        fetch(`http://localhost:5000/approvedBlogs`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(info)
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success(`Blog Posted To Your Website successfully...`)
+            })
+            .catch((error) => console.log(error.message));
     }
 
 
@@ -143,18 +166,23 @@ const BlogPostRequest = () => {
                                 </TextContainer>
                             </Info>
                             <Container>
-                                <button className='mr-4' style={{
-                                    backgroundColor: '#58D68D',
-                                    color: 'black',
-                                    padding: '10px',
-                                    borderRadius: '24px'
-                                }}>Accept</button>
-                                <button onClick={() => handleDelete(post._id)} style={{
-                                    backgroundColor: '#F39C12',
-                                    color: 'black',
-                                    padding: '10px',
-                                    borderRadius: '26px'
-                                }}>Decline</button>
+                                <button
+                                    onClick={() => handleAccept(post)}
+                                    className='mr-4'
+                                    style={{
+                                        backgroundColor: '#58D68D',
+                                        color: 'black',
+                                        padding: '10px',
+                                        borderRadius: '24px'
+                                    }}>Accept</button>
+                                <button
+                                    onClick={() => handleDelete(post._id)}
+                                    style={{
+                                        backgroundColor: '#F39C12',
+                                        color: 'black',
+                                        padding: '10px',
+                                        borderRadius: '26px'
+                                    }}>Decline</button>
                             </Container>
                         </Blog>
                     )

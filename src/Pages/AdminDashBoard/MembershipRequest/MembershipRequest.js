@@ -43,20 +43,18 @@ const MembershipRequest = () => {
 
 
     const handleDelete = (id) => {
-        const proceed = window.confirm("Are you sure? You want to delete this request!");
-        if (proceed) {
-            fetch(`http://localhost:5000/membershipRequest/${id}`, {
-                method: 'DELETE'
+
+        fetch(`http://localhost:5000/membershipRequest/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    toast.success(`Request Successfully Deleted.`)
+                    refetch();
+                }
             })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.deletedCount > 0) {
-                        toast.success(`Request Successfully Deleted.`)
-                        refetch();
-                    }
-                })
-                .catch((error) => console.log(error.message));
-        }
+            .catch((error) => console.log(error.message));
     };
 
 

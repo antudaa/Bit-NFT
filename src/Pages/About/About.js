@@ -121,7 +121,7 @@ const About = () => {
     // React Form
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const handleMembershipRequest = data => {
-        console.log(data)
+
         closeModal();
         const request = {
             name: data.name,
@@ -129,7 +129,6 @@ const About = () => {
             purpose: data.purpose,
             photo: user.photoURL
         }
-        console.log(request);
 
         fetch(`http://localhost:5000/membershipRequest`, {
             method: "POST",
@@ -174,7 +173,6 @@ const About = () => {
         }
     });
 
-    console.log(membersList)
 
 
     return (

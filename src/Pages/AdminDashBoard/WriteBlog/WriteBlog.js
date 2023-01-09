@@ -1,12 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider';
 
 const WriteBlog = () => {
-
-    const [postImage, setPostImage] = useState();
-    console.log(postImage);
 
     // Imagebb Host Key
     const imageHostKey = process.env.REACT_APP_imagebb_API_Key;
@@ -28,37 +25,35 @@ const WriteBlog = () => {
             .then(res => res.json())
             .then(imageData => {
                 if (imageData.success) {
-                    setPostImage(imageData.data.url);
+                    const postInfo = {
+                        postTitle: data.title,
+                        postImage: imageData.data.url,
+                        postDescription: data.content,
+                        author: user.displayName,
+                        authorImage: user.photoURL,
+                        date: data.date,
+                        authorEmail: user.email,
+                    }
+
+                    fetch(`http://localhost:5000/postBlog`, {
+                        method: "POST",
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(postInfo)
+                    })
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.acknowledged) {
+                                reset();
+                                toast.success("Posted Successfully...");
+                            }
+                        })
+                        .catch(err => console.log(err.message));
                 }
             })
 
-        const postInfo = {
-            postTitle: data.title,
-            postImage: postImage,
-            postDescription: data.content,
-            author: user.displayName,
-            authorImage: user.photoURL,
-            date: data.date,
-            authorEmail: user.email,
-        }
 
-        console.log(postInfo);
-
-        fetch(`http://localhost:5000/postBlog`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(postInfo)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.acknowledged) {
-                    reset();
-                    toast.success("Posted Successfully...");
-                }
-            })
-            .catch(err => console.log(err.message));
     }
 
     return (
