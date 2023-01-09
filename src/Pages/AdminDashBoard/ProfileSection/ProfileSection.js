@@ -30,7 +30,7 @@ const ProfileSection = () => {
     return (
         <div>
             <div className=''>
-                <div className='mt-[200%] lg:mt-[70%] ml-[30%] lg:ml-[40%]'>
+                <div className='mt-[10%] ml-[30%] lg:ml-[40%]'>
                     <div>
                         <img style={{
                             borderRadius: '50%',

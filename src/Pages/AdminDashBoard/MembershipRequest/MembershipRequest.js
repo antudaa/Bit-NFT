@@ -61,9 +61,7 @@ const MembershipRequest = () => {
 
 
     return (
-        <div style={{
-            marginTop: ''
-        }}>
+        <div className='mt-[10%] ml-[20%] md:ml-0 lg:ml-0' >
             <div className='mb-8'>
                 <DashboardNavbar />
             </div>

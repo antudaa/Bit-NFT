@@ -109,6 +109,9 @@ const SideBar = () => {
                                 <Links>
                                     <Link to='/adminDashboard/membershipRequest'>Membership Request</Link>
                                 </Links>
+                                <Links>
+                                    <Link to='/adminDashboard/membersList'>See All Members</Link>
+                                </Links>
                             </> :
                             <></>
                     }
