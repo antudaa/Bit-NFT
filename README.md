@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+# Live Site link 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[https://nft-collection-project.web.app/]
 
-## Available Scripts
+## Project Name (BIT NFT)
 
-In the project directory, you can run:
+A simple single page website .
 
-### `npm start`
+### `Technologies`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+HTML5
+CSS3
+React
+Firebase
+Tailwind
+Daisy UI
+Styled Components
+API
+dotenv
+React Hooks
+React Hook Form
+Email JS
+Node JS
+Express JS 
+MongoDB
+Dotenv
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+### `Animation`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Lottie
+Aos Animation
 
-### `npm run build`
+### `Theming Section`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Implemented Simple Dark & Light Theme
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Also Implemented Daisy UI Theming which shows only on Large device it's hidden on mobile devices. Here you can chose any theme from here .
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `React Hook`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Implemented A Personalized React Hook. It shows the page name dynamically .
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### `Pages`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Home
+About
+Contact
+Blog
+Sign Up 
+Login 
+Admin Dashboard
+Profile Section 
+Dashboard Section 
+Membership Request
+All Members
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+### `Contact Section`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+In contact section I Implemented EmailJS to get email.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### `Sign UP page`
 
-### Code Splitting
+In sign up page I Implemented Firebase Authentication system. Implemented Google Authentication system, react hook form, Email Authentication, Imagebb to upload user image and save to database.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### `Blog Page`
 
-### Analyzing the Bundle Size
+In blog page first I fetched the data's from database and then show the blogs to blog page. Here I also implemented review section .
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### `About Page`
 
-### Making a Progressive Web App
+In about page I Implemented A button to send membership request at first when a user browse BIT NFT he/she see the homepage blog section contact and About Section but unable to send the membership request .At first he/she need to login or sign up after that he/she can able to send a membership request and then the request go to admin after admin approve the request the user will be added as a member and after that a simple dashboard will be visible for the member and the button will be hided .
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### `Profile Section`
 
-### Advanced Configuration
+In profile section there some dynamic data will be shown about the member & blogs posted by the member.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### `Write Blog Section`
 
-### Deployment
+This page is only for member & admin with this page a member can write a blog and able to post it but this post not directly posted on blog first a request will go to the admin if the admin accept it then the blog will be posted on Blog section.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
