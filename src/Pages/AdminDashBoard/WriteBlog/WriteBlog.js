@@ -2,8 +2,12 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider';
+import DynamicRouteHook from '../../../Components/DynamiRouteHook/DynamicRouteHook';
+
 
 const WriteBlog = () => {
+
+    DynamicRouteHook('Write-Blog');
 
     // Imagebb Host Key
     const imageHostKey = process.env.REACT_APP_imagebb_API_Key;

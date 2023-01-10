@@ -3,10 +3,6 @@ import React from 'react';
 const Mode = () => {
 
 
-    // useEffect(() => {
-    //     themeChange(false)
-    // }, []);
-
     const [theme, setTheme] = React.useState('light');
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark');

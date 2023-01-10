@@ -2,9 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import verified from '../../../Components/Assets/Images/tick-mark.png';
+import DynamicRouteHook from '../../../Components/DynamiRouteHook/DynamicRouteHook';
+
 
 
 const ProfileSection = () => {
+
+    DynamicRouteHook('Profile');
 
     const { user } = useContext(AuthContext);
 
