@@ -101,7 +101,7 @@ const BlogPostRequest = () => {
     const { data: postBlog = [], refetch } = useQuery({
         queryKey: ['postBlog'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/postBlog');
+            const res = await fetch('https://bit-nft-server.vercel.app/postBlog');
             const data = await res.json();
             return data;
         }
@@ -110,7 +110,7 @@ const BlogPostRequest = () => {
 
     const handleDelete = (id) => {
 
-        fetch(`http://localhost:5000/postBlog/${id}`, {
+        fetch(`https://bit-nft-server.vercel.app/postBlog/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -135,7 +135,7 @@ const BlogPostRequest = () => {
             postImage: data.postImage,
         }
 
-        fetch(`http://localhost:5000/approvedBlogs`, {
+        fetch(`https://bit-nft-server.vercel.app/approvedBlogs`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

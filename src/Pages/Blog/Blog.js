@@ -8,7 +8,7 @@ const Blog = () => {
     const { data: approvedBlogs = [] } = useQuery({
         queryKey: ['approvedBlogs'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/approvedBlogs');
+            const res = await fetch('https://bit-nft-server.vercel.app/approvedBlogs');
             const data = await res.json();
             return data;
         }

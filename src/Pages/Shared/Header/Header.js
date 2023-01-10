@@ -25,7 +25,7 @@ const Header = () => {
     const { data: membersList = [] } = useQuery({
         queryKey: ['membersList'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/membersList/${user.email}`);
+            const res = await fetch(`https://bit-nft-server.vercel.app/membersList/${user.email}`);
             const data = await res.json();
             return data;
         }

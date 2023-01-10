@@ -11,7 +11,7 @@ const AllMembers = () => {
     const { data: allMembers = [], refetch } = useQuery({
         queryKey: ['allMembers'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/allMembers');
+            const res = await fetch('https://bit-nft-server.vercel.app/allMembers');
             const data = await res.json();
             return data;
         }
@@ -20,7 +20,7 @@ const AllMembers = () => {
 
     const handleDelete = (id) => {
 
-        fetch(`http://localhost:5000/allMembers/${id}`, {
+        fetch(`https://bit-nft-server.vercel.app/allMembers/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

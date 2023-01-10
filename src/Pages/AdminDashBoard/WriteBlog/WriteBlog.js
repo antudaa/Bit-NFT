@@ -39,7 +39,7 @@ const WriteBlog = () => {
                         authorEmail: user.email,
                     }
 
-                    fetch(`http://localhost:5000/postBlog`, {
+                    fetch(`https://bit-nft-server.vercel.app/postBlog`, {
                         method: "POST",
                         headers: {
                             "content-type": "application/json"

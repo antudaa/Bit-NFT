@@ -11,7 +11,7 @@ const MembershipRequest = () => {
     const { data: membershipRequest = [], refetch } = useQuery({
         queryKey: ['membershipRequest'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/membershipRequest');
+            const res = await fetch('https://bit-nft-server.vercel.app/membershipRequest');
             const data = await res.json();
             return data;
         }
@@ -27,7 +27,7 @@ const MembershipRequest = () => {
             userId: data._id,
         }
 
-        fetch(`http://localhost:5000/members/${data.email}`, {
+        fetch(`https://bit-nft-server.vercel.app/members/${data.email}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -44,7 +44,7 @@ const MembershipRequest = () => {
 
     const handleDelete = (id) => {
 
-        fetch(`http://localhost:5000/membershipRequest/${id}`, {
+        fetch(`https://bit-nft-server.vercel.app/membershipRequest/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

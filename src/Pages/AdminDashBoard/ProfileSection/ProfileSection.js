@@ -15,7 +15,7 @@ const ProfileSection = () => {
     const { data: membersList = [] } = useQuery({
         queryKey: ['membersList'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/membersList/${user.email}`);
+            const res = await fetch(`https://bit-nft-server.vercel.app/membersList/${user.email}`);
             const data = await res.json();
             return data;
         }
@@ -24,7 +24,7 @@ const ProfileSection = () => {
     const { data: approvedBlogs = [] } = useQuery({
         queryKey: ['approvedBlogs'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/approvedBlogs/${user.email}`);
+            const res = await fetch(`https://bit-nft-server.vercel.app/approvedBlogs/${user.email}`);
             const data = await res.json();
             return data;
         }
