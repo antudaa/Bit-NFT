@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import logo from '../../../Components/Assets/Images/ape.png';
+import video from '../../../Components/Assets/Videos/NFT Animation Logo.mp4';
 import './Footer.css';
 
 
@@ -33,8 +33,8 @@ const Footer = () => {
         <footer>
             <div className='row'>
                 <div className='col'>
-                    <img className='w-16 h-16' src={logo} alt="" />
-                    <p>Bit NFT</p>
+                    <video className='w-16 h-16 rounded-full' src={video}></video>
+                    <p className='text-md my-6 lg:text-xl'>Bit NFT</p>
                 </div>
                 <div className='col'>
                     <h3>Office  <div className="underline"><span></span></div></h3>

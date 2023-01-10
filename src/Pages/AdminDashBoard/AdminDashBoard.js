@@ -110,11 +110,11 @@ const AdminDashBoard = () => {
             <DashboardNavbar />
             <SubContainer>
                 <SectionOne>
-                    <ColumnOne1>
+                    <ColumnOne1 data-aos="fade-up">
                         <SiteRich />
                         <SiteInfo />
                     </ColumnOne1>
-                    <ColumnTwo1>
+                    <ColumnTwo1 data-aos="fade-up">
                         <TitleText>Blog Posts</TitleText>
                         <BlogPostsInfo />
                     </ColumnTwo1>

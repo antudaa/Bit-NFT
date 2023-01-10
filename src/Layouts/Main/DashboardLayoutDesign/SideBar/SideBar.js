@@ -121,9 +121,6 @@ const SideBar = () => {
                     <Links>
                         <Link to='/adminDashboard/blog'>Write Blog</Link>
                     </Links>
-                    <Links>
-                        <Link to='/adminDashboard/weather'>Weather</Link>
-                    </Links>
                 </ContainerLinks>
             </LinkContainer>
         </Container>

@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
         autoplay: true,
         animationData: LoadingAnimationLottie,
         rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice'
+            preserveAspectRatio: 'xMidYMid slice',
         }
     };
 

@@ -7,7 +7,6 @@ import AdminDashBoard from '../../AdminDashBoard/AdminDashBoard';
 import AllMembers from '../../AdminDashBoard/AllMembers/AllMembers';
 import MembershipRequest from '../../AdminDashBoard/MembershipRequest/MembershipRequest';
 import ProfileSection from '../../AdminDashBoard/ProfileSection/ProfileSection';
-import WeatherApp from '../../AdminDashBoard/WeatherApp/WeatherApp';
 import WriteBlog from '../../AdminDashBoard/WriteBlog/WriteBlog';
 import Blog from '../../Blog/Blog';
 import Contact from '../../Contact/Contact';
@@ -63,10 +62,6 @@ const router = createBrowserRouter([
             {
                 path: '/adminDashboard/membershipRequest',
                 element: <MembershipRequest />
-            },
-            {
-                path: '/adminDashboard/weather',
-                element: <WeatherApp />
             },
             {
                 path: '/adminDashboard/blog',

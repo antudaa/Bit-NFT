@@ -59,7 +59,7 @@ const WriteBlog = () => {
     return (
         <div>
             <div className='text-3xl my-4 mx-auto text-center lg:text-left'>
-                <h2 data-aos="fade-down">Write A Blog</h2>
+                <h2 data-aos="fade-down" className='mb-8 mt-16'>Write A Blog</h2>
 
                 <div data-aos="fade-up" className="card">
                     <div className="card-body">

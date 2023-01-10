@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import video from '../../../../Components/Assets/Videos/Home Video.mp4';
+import video from '../../../../Components/Assets/Videos/NFT Animation Logo.mp4';
 
 
 const VideoContainer = styled.div`

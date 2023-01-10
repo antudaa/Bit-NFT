@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Mode from '../../../Components/ThemeChanger/Mode';
-import logo from '../../../Components/Assets/Images/ape.png';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import ThemeChanger from '../../../Components/ThemeChanger/ThemeChanger';
@@ -58,8 +57,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className='flex'>
-                    <Link className="lg:mx-6 mx-2 normal-case text-lg font-bold md:text-xl">Bit  NFT</Link>
-                    <img className='w-6 h-6' src={logo} alt="" />
+                    <Link className="lg:mx-6 mx-2 normal-case lg:text-3xl text-lg font-bold md:text-xl">Bit  NFT</Link>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
