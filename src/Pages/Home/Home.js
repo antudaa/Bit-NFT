@@ -50,7 +50,7 @@ const Home = () => {
 
 
     return (
-        <Section className='my-16'>
+        <Section className='mt-10 mb-6'>
             <Container>
                 <Article className='lg:px-8' data-aos="fade-right">
                     <TypewriterText />

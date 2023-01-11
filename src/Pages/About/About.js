@@ -140,7 +140,7 @@ const About = () => {
             .then(data => {
                 if (data.acknowledged) {
                     reset();
-                    toast.success("Your product added Successfully");
+                    toast.success("Your Request Sent Successfully");
                 }
             })
             .catch(err => console.log(err.message));

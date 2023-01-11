@@ -21,12 +21,13 @@ const Login = () => {
 
     const from = location.state?.from?.pathname || '/about';
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const handleLogin = (data) => {
         console.log(data)
         Login(data.email, data.password)
             .then(result => {
                 const user = result.user;
+                reset();
                 toast.success(`Login Successful ${user?.email}.`)
                 navigate(from, { replace: true })
             })

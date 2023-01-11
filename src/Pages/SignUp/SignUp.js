@@ -18,7 +18,7 @@ const SignUp = () => {
     DynamicRouteHook('Sign Up');
 
     // React Hook Form .
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const handleSignUp = (data) => {
         const image = data.image[0];
         const formData = new FormData();
@@ -38,10 +38,9 @@ const SignUp = () => {
         createUserWithEmail(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                reset();
             })
             .catch(error => {
-                console.log(error)
                 toast.error(`${error.message}`)
             });
     };
@@ -56,7 +55,7 @@ const SignUp = () => {
 
         updateUser(profile)
             .then(() => {
-                toast(`Welcome ${profile.displayName}`)
+                toast.success(`Welcome ${profile.displayName}`)
             })
             .catch(error => console.error(error));
     }
