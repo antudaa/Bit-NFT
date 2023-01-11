@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Carousel from './Carousel';
 import Bounce from 'react-reveal/Bounce';
@@ -11,7 +11,6 @@ import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
-import { useQuery } from '@tanstack/react-query';
 
 
 
@@ -164,14 +163,17 @@ const About = () => {
 
 
     // Getting Member Data.
-    const { data: membersList = [] } = useQuery({
-        queryKey: ['membersList'],
-        queryFn: async () => {
-            const res = await fetch(`https://bit-nft-server.vercel.app/membersList/${user.email}`);
-            const data = await res.json();
-            return data;
-        }
-    });
+    const [member, setMember] = useState();
+
+    useEffect(() => {
+        fetch(`https://bit-nft-server.vercel.app/membersList/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setMember(data);
+            })
+            .catch(error => console.log(error.message));
+    }, [user?.email])
+
 
 
 
@@ -287,7 +289,7 @@ const About = () => {
                         </SubTextLight>
                     </Fade>
                     {
-                        membersList?.status ?
+                        member?.status ?
                             <></> :
                             <Button onClick={() => {
                                 openModal();

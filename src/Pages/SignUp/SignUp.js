@@ -24,7 +24,7 @@ const SignUp = () => {
         const formData = new FormData();
         formData.append('image', image);
 
-        const url = `https://api.imgbb.com/1/upload?expiration=600&key=${imageHostKey}`
+        const url = `https://api.imgbb.com/1/upload?&key=${imageHostKey}`
         fetch(url, {
             method: 'POST',
             body: formData
@@ -32,17 +32,13 @@ const SignUp = () => {
             .then(res => res.json())
             .then(imageData => {
                 if (imageData.success) {
-                    console.log(imageData.data.url)
                     handleUpdateUserProfile(data.name, imageData.data.url);
                 }
             })
         createUserWithEmail(data.email, data.password)
             .then(result => {
                 const user = result.user;
-
                 console.log(user);
-
-                toast(`${data.name} welcome to Bit NFT`)
             })
             .catch(error => {
                 console.log(error)
@@ -60,7 +56,7 @@ const SignUp = () => {
 
         updateUser(profile)
             .then(() => {
-                console.log(profile)
+                toast(`Welcome ${profile.displayName}`)
             })
             .catch(error => console.error(error));
     }

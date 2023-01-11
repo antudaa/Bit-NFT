@@ -28,7 +28,6 @@ const ProfileContainer = styled.div`
 
 const Avatar = styled.img`
     height: 7rem;
-    border-radius: 50%;
     margin-top: 20%;
 `;
 
@@ -88,7 +87,7 @@ const SideBar = () => {
             <ProfileContainer>
                 {
                     user?.photoURL ?
-                        <Avatar src={user.photoURL} /> :
+                        <Avatar className='rounded-full' src={user.photoURL} /> :
                         <></>
                 }
                 <Name>{user.displayName}</Name>

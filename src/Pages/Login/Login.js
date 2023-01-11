@@ -19,7 +19,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const from = location.state?.from?.pathname || '/';
+    const from = location.state?.from?.pathname || '/about';
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const handleLogin = (data) => {
@@ -27,8 +27,7 @@ const Login = () => {
         Login(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                toast.success(`Login Successful.`)
-                console.log(user);
+                toast.success(`Login Successful ${user?.email}.`)
                 navigate(from, { replace: true })
             })
             .catch((error) => {
@@ -45,7 +44,6 @@ const Login = () => {
         signInWithGoogle(googleProvider)
             .then((result) => {
                 const user = result.user;
-                console.log(user.displayName);
                 toast.success(`Login Successful. Welcome ${user.displayName}`);
             })
             .catch((error) => {
@@ -63,8 +61,8 @@ const Login = () => {
             </div>
             <div data-aos="fade-up" className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
-                    <img src={LoginImage} className="lg:max-w-xl rounded-lg shadow-2xl w-86" alt='' />
-                    <div className="card w-86 lg:max-w-xl flex-shrink-0 shadow-2xl bg-base-100">
+                    <img src={LoginImage} className="lg:w-[40%] rounded-lg shadow-2xl w-[100%]" alt='' />
+                    <div className="card w-[100%] lg:w-[40%] flex-shrink-0 shadow-2xl bg-base-100">
                         <div className="card-body">
                             <form onSubmit={handleSubmit(handleLogin)}>
                                 <div className="form-control">

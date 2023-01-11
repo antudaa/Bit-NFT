@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import BannerVideo from './TypewriterText/BannerVideo/BannerVideo';
 import TypewriterText from './TypewriterText/TypewriterText';
@@ -48,10 +47,12 @@ const Article = styled.div`
 `
 
 const Home = () => {
+
+
     return (
-        <Section>
+        <Section className='my-16'>
             <Container>
-                <Article data-aos="fade-right">
+                <Article className='lg:px-8' data-aos="fade-right">
                     <TypewriterText />
                 </Article>
                 <Article data-aos="fade-left">

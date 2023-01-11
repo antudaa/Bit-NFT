@@ -83,22 +83,7 @@ const Contact = () => {
                         </div>
                     </div>
                 </div>
-                <div className="row">
-                    <div className="map-column">
-                        <div data-aos="fade-up" className="contact-map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3686.0335829481446!2d91.80975111476931!3d22.502923141195996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30acd77851e5fba9%3A0x77e59f952a3fb977!2sHathazari%20College%20Gate!5e0!3m2!1sen!2sbd!4v1672433997204!5m2!1sen!2sbd"
-                                width="600"
-                                height="450"
-                                style={{ border: 0 }}
-                                allowFullScreen=""
-                                loading="lazy"
-                                title='ANTU'
-                                referrerPolicy="no-referrer-when-downgrade">
-
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </section>
     );

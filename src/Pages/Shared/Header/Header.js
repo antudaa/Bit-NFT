@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Mode from '../../../Components/ThemeChanger/Mode';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
 import ThemeChanger from '../../../Components/ThemeChanger/ThemeChanger';
-import { useQuery } from '@tanstack/react-query';
 
 
 const Header = () => {
@@ -22,14 +21,16 @@ const Header = () => {
     };
 
 
-    const { data: membersList = [] } = useQuery({
-        queryKey: ['membersList'],
-        queryFn: async () => {
-            const res = await fetch(`https://bit-nft-server.vercel.app/membersList/${user.email}`);
-            const data = await res.json();
-            return data;
-        }
-    });
+    const [member, setMember] = useState();
+
+    useEffect(() => {
+        fetch(`https://bit-nft-server.vercel.app/membersList/${user?.email}`)
+            .then(res => res.json())
+            .then(data => {
+                setMember(data);
+            })
+            .catch(error => console.log(error.message));
+    }, [user?.email, logOut])
 
 
     return (
@@ -45,11 +46,14 @@ const Header = () => {
                         <li><Link to="/blog">Blog</Link></li>
                         <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/signup">Sign Up</Link></li>
-
+                        {
+                            member?.status ?
+                                <li><Link to="/adminDashboard">Admin Dashboard</Link></li> :
+                                <></>
+                        }
                         {
                             user?.uid ?
                                 <>
-                                    <li><Link to="/adminDashboard">Admin Dashboard</Link></li>
                                     <li><Link onClick={handleLogOut} to="">Log Out</Link></li>
                                 </> :
                                 <li><Link to="/login">Login</Link></li>
@@ -68,7 +72,7 @@ const Header = () => {
                     <Link className='mx-2' to="/contact">Contact</Link>
                     <Link className='mx-2' to="/signup">Sign Up</Link>
                     {
-                        membersList?.status ?
+                        member?.status ?
                             <Link className='mx-2' to="/adminDashboard">Admin Dashboard</Link> :
                             <></>
                     }
