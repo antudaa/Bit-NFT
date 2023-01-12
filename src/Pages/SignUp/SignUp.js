@@ -24,7 +24,7 @@ const SignUp = () => {
         const formData = new FormData();
         formData.append('image', image);
 
-        const url = `https://api.imgbb.com/1/upload?&key=${imageHostKey}`
+        const url = `https://api.imgbb.com/1/upload?expiration=63072000?&key=${imageHostKey}`
         fetch(url, {
             method: 'POST',
             body: formData
