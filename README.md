@@ -8,23 +8,27 @@ A simple single page website .
 
 ### `Technologies`
 
-HTML5
-CSS3
-React
-Firebase
-Tailwind
-Daisy UI
-Styled Components
-API
-dotenv
-React Hooks
-React Hook Form
-Email JS
-Node JS
-Express JS 
-MongoDB
-Dotenv
+HTML5  
+CSS3  
+React  
+Firebase  
+Tailwind  
+Daisy UI  
+Styled Components  
+API  
+dotenv  
+React Hooks  
+React Hook Form  
+Email JS  
+Node JS  
+Express JS   
+MongoDB  
+Dotenv  
 
+
+### `MongoDB`
+
+Implemented CRUD Operations.
 
 ### `Animation`
 
@@ -44,17 +48,17 @@ Implemented A Personalized React Hook. It shows the page name dynamically .
 
 ### `Pages`
 
-Home
-About
-Contact
-Blog
-Sign Up 
-Login 
-Admin Dashboard
-Profile Section 
-Dashboard Section 
-Membership Request
-All Members
+Home 
+About 
+Contact 
+Blog 
+Sign Up  
+Login  
+Admin Dashboard 
+Profile Section  
+Dashboard Section  
+Membership Request 
+All Members 
 
 
 ### `Contact Section`
