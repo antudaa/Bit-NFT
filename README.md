@@ -48,17 +48,17 @@ Implemented A Personalized React Hook. It shows the page name dynamically .
 
 ### `Pages`
 
-Home 
-About 
-Contact 
-Blog 
+Home  
+About  
+Contact   
+Blog  
 Sign Up  
 Login  
-Admin Dashboard 
-Profile Section  
-Dashboard Section  
-Membership Request 
-All Members 
+Admin Dashboard  
+Profile Section   
+Dashboard Section   
+Membership Request  
+All Members  
 
 
 ### `Contact Section`
