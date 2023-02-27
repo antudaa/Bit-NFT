@@ -6,6 +6,7 @@ import Aos from "aos";
 import 'aos/dist/aos.css';
 import { useEffect } from "react";
 import { Toaster } from 'react-hot-toast';
+import AuthProvider from './Context/AuthProvider';
 
 function App() {
 
@@ -17,9 +18,11 @@ function App() {
   }, []);
 
   return (
-    <div >
-      <RouterProvider router={router} />
-      <Toaster />
+    <div>
+      <AuthProvider>
+        <RouterProvider router={router} />
+        <Toaster />
+      </AuthProvider>
     </div>
   );
 }

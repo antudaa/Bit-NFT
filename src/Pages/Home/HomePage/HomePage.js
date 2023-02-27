@@ -1,5 +1,5 @@
 import React from 'react';
-import DynamicRouteHook from '../../../Components/DynamiRouteHook/DynamicRouteHook';
+import DynamicRouteHook from '../../../Components/DynamicRouteHook/DynamicRouteHook';
 import About from '../../About/About';
 import Contact from '../../Contact/Contact';
 import Home from '../Home';

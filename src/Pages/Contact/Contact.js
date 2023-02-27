@@ -1,5 +1,5 @@
 import React from 'react';
-import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
+import DynamicRouteHook from '../../Components/DynamicRouteHook/DynamicRouteHook';
 // import emailjs from '@emailjs/browser';
 // import toast, { Toaster } from "react-hot-toast";
 import './Contact.css';

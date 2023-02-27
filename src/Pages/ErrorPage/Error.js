@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
+import DynamicRouteHook from '../../Components/DynamicRouteHook/DynamicRouteHook';
 import LottieErrorAnimation from '../../LottieErrorAnimation.json';
 
 

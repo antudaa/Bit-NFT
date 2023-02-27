@@ -4,16 +4,13 @@ import Carousel from './Carousel';
 import Bounce from 'react-reveal/Bounce';
 import Fade from 'react-reveal/Fade';
 import { dark } from '../../Components/Thems/Thems';
-import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
+import DynamicRouteHook from '../../Components/DynamicRouteHook/DynamicRouteHook';
 // Importing React Modal
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
-
-
-
 
 
 // Styled Component Starts here
@@ -115,6 +112,9 @@ Modal.setAppElement('#root');
 
 const About = () => {
 
+    DynamicRouteHook('About');
+
+    // Getting User Data 
     const { user } = useContext(AuthContext);
 
     // React Form
@@ -128,7 +128,7 @@ const About = () => {
             purpose: data.purpose,
             photo: user.photoURL
         }
-
+        // Sending Data to Membership Request Collection
         fetch(`https://bit-nft-server.vercel.app/membershipRequest`, {
             method: "POST",
             headers: {
@@ -146,8 +146,6 @@ const About = () => {
             .catch(err => console.log(err.message));
     };
 
-    DynamicRouteHook('About');
-
     // React Modal
     const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -159,23 +157,17 @@ const About = () => {
     // Close Modal Function
     function closeModal() {
         setIsOpen(false);
-    }
+    };
 
-
-    // Getting Member Data.
     const [member, setMember] = useState();
 
+    // Getting Member Data.
     useEffect(() => {
         fetch(`https://bit-nft-server.vercel.app/membersList/${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setMember(data);
-            })
-            .catch(error => console.log(error.message));
-    }, [user?.email])
-
-
-
+            .then((res) => res.json())
+            .then((data) => setMember(data))
+            .catch((err) => console.log(err.message))
+    }, [user?.email]);
 
     return (
         <Section className='pt-8 pb-16'>
@@ -266,7 +258,9 @@ const About = () => {
 
                 }
             </Modal>
+            {/* Modal Closed */}
 
+            {/* Site Content */}
             <Container>
                 <Box style={{
                     zIndex: '-1'

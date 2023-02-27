@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { toast } from 'react-hot-toast';
-import DynamicRouteHook from '../../../Components/DynamiRouteHook/DynamicRouteHook';
+import DynamicRouteHook from '../../../Components/DynamicRouteHook/DynamicRouteHook';
 import DashboardNavbar from '../../../Layouts/Main/DashboardLayoutDesign/DashboardNavbar/DashboardNavbar';
 
 const MembershipRequest = () => {

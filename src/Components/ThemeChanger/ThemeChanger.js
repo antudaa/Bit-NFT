@@ -8,8 +8,6 @@ const ThemeChanger = () => {
         "dark",
         "cupcake",
         "corporate",
-        "retro",
-        "cyberpunk",
         "fantasy",
         "luxury",
         "autumn",

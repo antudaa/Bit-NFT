@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { AuthContext } from '../../../Context/AuthProvider';
-import DynamicRouteHook from '../../../Components/DynamiRouteHook/DynamicRouteHook';
+import DynamicRouteHook from '../../../Components/DynamicRouteHook/DynamicRouteHook';
 
 
 const WriteBlog = () => {
@@ -54,11 +54,9 @@ const WriteBlog = () => {
                             }
                         })
                         .catch(err => console.log(err.message));
-                }
-            })
-
-
-    }
+                };
+            });
+    };
 
     return (
         <div>

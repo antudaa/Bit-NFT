@@ -4,6 +4,7 @@ import Lottie from 'react-lottie';
 
 const Loading = () => {
 
+    // Lottie animation Default Option
     const defaultOptions = {
         loop: true,
         autoplay: true,

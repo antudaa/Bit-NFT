@@ -40,6 +40,8 @@ const Header = () => {
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
+
+                    {/* Navbar For Small Device  */}
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box " style={{ width: '100vw' }}>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/about">About</Link></li>
@@ -47,8 +49,14 @@ const Header = () => {
                         <li><Link to="/contact">Contact</Link></li>
                         <li><Link to="/signup">Sign Up</Link></li>
                         {
-                            member?.status ?
-                                <li><Link to="/adminDashboard">Admin Dashboard</Link></li> :
+                            user?.uid ?
+                                <li>
+                                    {
+                                        member?.status ?
+                                            <Link to="/adminDashboard">Dashboard</Link> :
+                                            <Link to="/dashboardError">Dashboard</Link>
+                                    }
+                                </li> :
                                 <></>
                         }
                         {
@@ -64,6 +72,8 @@ const Header = () => {
                     <Link className="lg:mx-6 mx-2 normal-case lg:text-3xl text-lg font-bold md:text-xl">Bit  NFT</Link>
                 </div>
             </div>
+
+            {/* Large Device Navbar  */}
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
                     <Link className='mx-2' to="/">Home</Link>
@@ -72,8 +82,12 @@ const Header = () => {
                     <Link className='mx-2' to="/contact">Contact</Link>
                     <Link className='mx-2' to="/signup">Sign Up</Link>
                     {
-                        member?.status ?
-                            <Link className='mx-2' to="/adminDashboard">Admin Dashboard</Link> :
+                        user?.uid ?
+                            <Link className='mx-2' to={
+                                member?.status ?
+                                    "/adminDashboard" :
+                                    "/dashboardError"
+                            }>Dashboard</Link> :
                             <></>
                     }
                     {
@@ -89,9 +103,11 @@ const Header = () => {
 
                 {/* <ThemeChanger /> */}
                 <div className='mx-4'>
+                    {/* Toggle theme only Dark & White   */}
                     <Mode />
                 </div>
                 <div className='hidden lg:flex'>
+                    {/* Theme change with Daisy UI  */}
                     <ThemeChanger />
                 </div>
             </div>

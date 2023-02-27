@@ -1,10 +1,12 @@
 import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
+import ErrorPageLayout from '../../../Layouts/ErrorPageLayout';
 import DashboardLayout from '../../../Layouts/Main/DashboardLayout';
 import Main from '../../../Layouts/Main/Main';
 import About from '../../About/About';
 import AdminDashBoard from '../../AdminDashBoard/AdminDashBoard';
 import AllMembers from '../../AdminDashBoard/AllMembers/AllMembers';
+import DashBoardErrorPage from '../../AdminDashBoard/DashBoardErrorPage/DashBoardErrorPage';
 import MembershipRequest from '../../AdminDashBoard/MembershipRequest/MembershipRequest';
 import ProfileSection from '../../AdminDashBoard/ProfileSection/ProfileSection';
 import WriteBlog from '../../AdminDashBoard/WriteBlog/WriteBlog';
@@ -74,8 +76,19 @@ const router = createBrowserRouter([
         ]
     },
     {
+
         path: '*',
-        element: <Error />
+        element: <ErrorPageLayout />,
+        children: [
+            {
+                path: '*',
+                element: <Error />
+            }
+        ]
+    },
+    {
+        path: '/dashboardError',
+        element: <DashBoardErrorPage />
     }
 ])
 

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import signUpImage from '../../Components/Assets/Login/20602854_6325241.jpg';
-import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
+import DynamicRouteHook from '../../Components/DynamicRouteHook/DynamicRouteHook';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
@@ -38,6 +38,7 @@ const SignUp = () => {
         createUserWithEmail(data.email, data.password)
             .then(result => {
                 const user = result.user;
+                console.log(user?.email);
                 reset();
             })
             .catch(error => {

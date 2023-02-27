@@ -10,7 +10,7 @@ import { useQuery } from '@tanstack/react-query';
 const Container = styled.div`
     width : 100%;
     height : 100%;
-    border-radius : 2rem;
+    border-radius : 1rem;
     background-color: #091322;
     color: white;
     display: flex;
@@ -42,7 +42,6 @@ const LinkContainer = styled.div`
     background-color: #162349;
     height: 100%;
     width: 100%;
-    border-radius: 2rem;
 `;
 
 const ContainerLinks = styled.ul`

@@ -5,9 +5,8 @@ import { useForm } from "react-hook-form";
 import './Login.css';
 import { AuthContext } from '../../Context/AuthProvider';
 import { toast } from 'react-hot-toast';
-import DynamicRouteHook from '../../Components/DynamiRouteHook/DynamicRouteHook';
+import DynamicRouteHook from '../../Components/DynamicRouteHook/DynamicRouteHook';
 import { GoogleAuthProvider } from 'firebase/auth';
-
 
 
 const Login = () => {
@@ -19,7 +18,7 @@ const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const from = location.state?.from?.pathname || '/about';
+    const from = location.state?.from?.pathname || '/';
 
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const handleLogin = (data) => {
@@ -34,9 +33,7 @@ const Login = () => {
             .catch((error) => {
                 toast.error(`${error.message}`)
                 console.log(error.message)
-            })
-
-
+            });
     };
 
     const googleProvider = new GoogleAuthProvider();
@@ -49,10 +46,8 @@ const Login = () => {
             })
             .catch((error) => {
                 console.error(error);
-            })
-    }
-
-
+            });
+    };
 
     return (
 
@@ -98,8 +93,6 @@ const Login = () => {
                 </div>
             </div>
         </div>
-
-
     );
 };
 

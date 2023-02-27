@@ -1,13 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { toast } from 'react-hot-toast';
-import DynamicRouteHook from '../../../Components/DynamiRouteHook/DynamicRouteHook';
+import DynamicRouteHook from '../../../Components/DynamicRouteHook/DynamicRouteHook';
 import FlipCard from '../FlipCard/FlipCard';
 
 const AllMembers = () => {
 
     DynamicRouteHook('AllMembers');
-
+    
     const { data: allMembers = [], refetch } = useQuery({
         queryKey: ['allMembers'],
         queryFn: async () => {
