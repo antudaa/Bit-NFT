@@ -55,6 +55,7 @@ const Login = () => {
             <div>
                 <h2 className='py-6 text-2xl md:text-4xl lg:text-4xl text-center'>Welcome ! Please Login .</h2>
             </div>
+
             <div data-aos="fade-up" className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col lg:flex-row">
                     <img src={LoginImage} className="lg:w-[40%] rounded-lg shadow-2xl w-[100%]" alt='' />
