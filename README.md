@@ -1,93 +1,150 @@
-# Live Site link 
+# BIT NFT - React + Node.js + Firebase + Tailwind + MongoDB
 
-[https://nft-collection-project.web.app/]
+Welcome to the **BIT NFT** project! This repository contains the frontend and backend code for a modern single-page NFT collection platform. Built using cutting-edge web technologies like React, Node.js, and Tailwind, **BIT NFT** offers a seamless user experience for exploring, managing, and interacting with NFT collections, enhanced by secure authentication and user-friendly design.
 
-# Server Site Code
+## 🚀 Live Demo
 
-[https://github.com/antudaa/Bit-NFT-Server]
+- [Live Site](https://nft-collection-project.web.app/)
 
-## Project Name (BIT NFT)
+## 🖥️ Server Repository
 
-A simple single page website .
+- [Server Code](https://github.com/antudaa/Bit-NFT-Server)
 
-### `Technologies`
+---
 
-HTML5  
-CSS3  
-React  
-Firebase  
-Tailwind  
-Daisy UI  
-Styled Components  
-API  
-dotenv  
-React Hooks  
-React Hook Form  
-Email JS  
-Node JS  
-Express JS   
-MongoDB  
-Dotenv  
+## 🚀 Getting Started
 
+Follow these steps to set up the project on your local environment.
 
-### `MongoDB`
+### Prerequisites
 
-Implemented CRUD Operations.
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/) package manager
 
-### `Animation`
+### Installation
 
-Lottie
-Aos Animation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/antudaa/Bit-NFT-Frontend.git
+    cd BIT-NFT
+    ```
 
-### `Theming Section`
+2. Install dependencies:
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-Implemented Simple Dark & Light Theme
+3. Start the development server:
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    ```
 
-Also Implemented Daisy UI Theming which shows only on Large device it's hidden on mobile devices. Here you can chose any theme from here .
+4. Open your browser and navigate to `http://localhost:3000` to view the application.
 
+---
 
-### `React Hook`
+## 📂 Project Structure
 
-Implemented A Personalized React Hook. It shows the page name dynamically .
+The project is organized for scalability and maintainability:
 
-### `Pages`
+- **Frontend**: React-based single-page application.
+  - **src/components/**: Reusable React components.
+  - **src/pages/**: Page components for various routes.
+  - **src/hooks/**: Custom hooks for dynamic functionality.
+  - **src/styles/**: Tailwind and DaisyUI styles for consistent theming.
+  - **src/utils/**: Utility functions and helpers.
+- **Backend**: Node.js API with MongoDB for database operations.
+  - **routes/**: API endpoints for CRUD operations.
+  - **models/**: MongoDB models and schemas.
+  - **controllers/**: Business logic for API requests.
+- **public/**: Static assets such as images and icons.
 
-Home  
-About  
-Contact   
-Blog  
-Sign Up  
-Login  
-Admin Dashboard  
-Profile Section   
-Dashboard Section   
-Membership Request  
-All Members  
+---
 
+## 🌟 Features
 
-### `Contact Section`
+### Frontend Features
 
-In contact section I Implemented EmailJS to get email.
+- **NFT Collection Management**: Browse, add, and manage NFTs with CRUD operations.
+- **Theming**: Switch between light and dark modes; DaisyUI themes available on large screens.
+- **Dynamic Hooks**: Custom React hook dynamically displays page titles.
+- **Animations**: Lottie and AOS for engaging transitions.
 
-### `Sign UP page`
+### Backend Features
 
-In sign up page I Implemented Firebase Authentication system. Implemented Google Authentication system, react hook form, Email Authentication, Imagebb to upload user image and save to database.
+- **Authentication**: Firebase authentication with email and Google login.
+- **Secure Sign-Up**: Supports image uploads to ImageBB and stores user profiles in MongoDB.
+- **Role-Based Access**: Membership requests, admin approvals, and secure dashboard access.
+- **API Integration**: Dynamic blog fetching, posting, and review sections.
 
-### `Blog Page`
+---
 
-In blog page first I fetched the data's from database and then show the blogs to blog page. Here I also implemented review section .
+## 🌐 Deployment
 
-### `About Page`
+Deploy the project using [Firebase](https://firebase.google.com/) for the frontend and [Vercel](https://vercel.com/) or similar platforms for the backend.
 
-In about page I Implemented A button to send membership request at first when a user browse BIT NFT he/she see the homepage blog section contact and About Section but unable to send the membership request .At first he/she need to login or sign up after that he/she can able to send a membership request and then the request go to admin after admin approve the request the user will be added as a member and after that a simple dashboard will be visible for the member and the button will be hided .
+---
 
-### `Profile Section`
+## 📘 Documentation
 
-In profile section there some dynamic data will be shown about the member & blogs posted by the member.
+### Core Functionalities
 
-### `Write Blog Section`
+1. **User Authentication**:
+   - Firebase for secure login and sign-up.
+   - Email, Google authentication, and role-based dashboard access.
 
-This page is only for member & admin with this page a member can write a blog and able to post it but this post not directly posted on blog first a request will go to the admin if the admin accept it then the blog will be posted on Blog section.
+2. **Membership Request**:
+   - Users send requests after logging in.
+   - Admin approves or denies requests via the dashboard.
 
+3. **Dynamic Blogs**:
+   - Blogs fetched from the database and displayed dynamically.
+   - Members can write blogs, pending admin approval before publishing.
 
+4. **Profile Management**:
+   - Display user data and blog history dynamically in the profile section.
 
+---
+
+## 🛠️ Development
+
+### Scripts
+
+- `npm run dev`: Start the development server.
+- `npm run build`: Build the application for production.
+- `npm run lint`: Run code quality checks with ESLint.
+- `npm run preview`: Preview the production build locally.
+
+### Standards
+
+- Follow the Airbnb JavaScript style guide.
+- Use Prettier for consistent code formatting.
+- Write tests with Jest and React Testing Library for reliability.
+
+---
+
+## 🛡️ Security
+
+- **Authentication**: Firebase with JWT for secure access.
+- **Validation**: Comprehensive validation for inputs and requests.
+- **Error Handling**: User-friendly error messages for all functionalities.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please check the [contribution guidelines](CONTRIBUTING.md) for more information.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+Developed with ❤️ by **Antu Das**.
